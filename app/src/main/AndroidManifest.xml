@@ -9,9 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Post"></activity>
+        <activity
+            android:name=".MainPage"
+            android:label="@string/title_activity_main_page"></activity>
+        <activity android:name=".Post" />
         <activity android:name=".Submit" />
-        <activity android:name=".Create" />
         <activity android:name=".Vote" />
         <activity android:name=".Login" />
         <activity android:name=".Registor" />
