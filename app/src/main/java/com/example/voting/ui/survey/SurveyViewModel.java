@@ -10,7 +10,7 @@ public class SurveyViewModel extends ViewModel {
 
     public SurveyViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
+        mText.setValue("My Survey");
     }
 
     public LiveData<String> getText() {
