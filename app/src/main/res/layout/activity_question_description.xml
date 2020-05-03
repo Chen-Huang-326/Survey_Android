@@ -4,58 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateTitle">
+    tools:context=".Question_description">
 
     <TextView
-        android:id="@+id/survey_title"
+        android:id="@+id/que_dec_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
-        android:text="Survey title"
-        android:textSize="30sp"
+        android:text="Description"
+        android:textSize="35sp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/title_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:id="@+id/question_content"
+        android:layout_width="376dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Enter your survey title"
+        android:text="Enter your question"
         android:textColor="#ACA8A8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/survey_title" />
+        app:layout_constraintTop_toBottomOf="@+id/que_dec_title" />
 
     <Button
-        android:id="@+id/Title_back"
+        android:id="@+id/description_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
         android:layout_marginLeft="80dp"
-        android:layout_marginTop="8dp"
-        android:onClick="TitleBack"
+        android:layout_marginTop="16dp"
+        android:onClick="DescriptionBack"
         android:text="BACK"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_input" />
+        app:layout_constraintTop_toBottomOf="@+id/question_content" />
 
     <Button
-        android:id="@+id/Title_submit"
+        android:id="@+id/description_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
-        android:onClick="TitleSubmit"
+        android:onClick="DescriptionSubmit"
         android:text="SUBMIT"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_input" />
-
+        app:layout_constraintTop_toBottomOf="@+id/question_content" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

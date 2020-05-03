@@ -44,14 +44,17 @@
 
     <ImageButton
         android:id="@+id/Edit_create"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:background="?android:attr/windowBackground"
-        app:layout_constraintEnd_toStartOf="@+id/Edit_save"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="62dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="564dp"
+        android:layout_marginBottom="48dp"
+        android:background="#651A87B9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/survey_title_editer"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_add_black_24dp" />
 
     <TextView
@@ -67,7 +70,7 @@
         app:layout_constraintTop_toBottomOf="@+id/Edit" />
 
     <ImageButton
-        android:id="@+id/title_edit"
+        android:id="@+id/page_add_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -78,5 +81,41 @@
         app:layout_constraintStart_toEndOf="@+id/survey_title_editer"
         app:layout_constraintTop_toBottomOf="@+id/Edit"
         app:srcCompat="@drawable/ic_edit_black_24dp" />
+
+    <TextView
+        android:id="@+id/page_add_intro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Adding page"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/Edit_create"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/create_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="?android:attr/windowBackground"
+        android:onClick="QuestionOption"
+        app:layout_constraintEnd_toStartOf="@+id/Edit_save"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_add_black_24dp" />
+
+    <TextView
+        android:id="@+id/query_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/survey_title_editer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
