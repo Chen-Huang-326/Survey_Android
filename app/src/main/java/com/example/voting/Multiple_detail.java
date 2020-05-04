@@ -15,7 +15,7 @@ public class Multiple_detail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multiple_detail);
-/**
+
         LinearLayout linearLayout = findViewById(R.id.mul_view);
         Intent intent = getIntent();
         Bundle bd = intent.getExtras();
@@ -26,6 +26,6 @@ public class Multiple_detail extends AppCompatActivity {
             EditText editText = new EditText(this);
             editText.setText(choice_name);
             linearLayout.addView(editText);
-        }*/
+        }
     }
 }
