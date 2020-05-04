@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Question_text"></activity>
+        <activity android:name=".Multiple_detail"></activity>
+        <activity android:name=".Question_text" />
         <activity android:name=".Question_multiple" />
         <activity android:name=".Question_description" />
         <activity android:name=".CreateTitle" />

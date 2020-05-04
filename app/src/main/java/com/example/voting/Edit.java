@@ -16,7 +16,11 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class Edit extends AppCompatActivity {
+
+    private ArrayList<String> query_list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
