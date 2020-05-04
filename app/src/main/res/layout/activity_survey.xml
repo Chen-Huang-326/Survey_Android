@@ -5,17 +5,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Edit">
+    tools:context=".Survey">
 
     <TextView
-        android:id="@+id/Edit"
+        android:id="@+id/Survey"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
-        android:text="EDIT"
+        android:text="@string/survey"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +67,7 @@
         android:text="Enter your survey title"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Edit" />
+        app:layout_constraintTop_toBottomOf="@+id/Survey" />
 
     <ImageButton
         android:id="@+id/page_add_button"
@@ -79,7 +79,7 @@
         android:background="?android:attr/windowBackground"
         android:onClick="TitleEdit"
         app:layout_constraintStart_toEndOf="@+id/survey_title_editer"
-        app:layout_constraintTop_toBottomOf="@+id/Edit"
+        app:layout_constraintTop_toBottomOf="@+id/Survey"
         app:srcCompat="@drawable/ic_edit_black_24dp" />
 
     <TextView

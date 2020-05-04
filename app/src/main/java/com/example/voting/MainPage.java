@@ -31,8 +31,8 @@ public class MainPage extends AppCompatActivity {
     }
 
     public void CreateNewSurvey (View v){
-        Intent intent = new Intent(MainPage.this, Edit.class);
-        startActivityForResult(intent,1);
+        Intent intent = new Intent(MainPage.this, TypeSelection.class);
+        startActivity(intent);
     }
 
 }
