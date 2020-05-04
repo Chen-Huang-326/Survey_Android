@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Voting.iml" filepath="$PROJECT_DIR$/Voting.iml" group="Voting" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Voting/app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/comp2100_6442-sample-project.iml" filepath="$PROJECT_DIR$/.idea/comp2100_6442-sample-project.iml" />
     </modules>
   </component>
 </project>

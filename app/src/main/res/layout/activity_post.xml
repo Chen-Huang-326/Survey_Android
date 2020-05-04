@@ -7,9 +7,10 @@
     tools:context=".Post">
 
     <Button
-        android:id="@+id/button21"
+        android:id="@+id/b_pCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="postToCreateActivityButton"
         android:text="CREATE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,38 +19,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.45" />
 
-    <Button
-        android:id="@+id/button22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="VOTE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.344" />
-
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/t_successful"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="142dp"
-        android:layout_marginLeft="142dp"
-        android:layout_marginTop="167dp"
-        android:layout_marginEnd="143dp"
-        android:layout_marginRight="143dp"
-        android:layout_marginBottom="545dp"
         android:text="Post successfully"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.259" />
 
     <Button
-        android:id="@+id/button23"
+        android:id="@+id/b_pLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="postLogoutButton"
         android:text="Logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,14 +44,29 @@
         app:layout_constraintVertical_bias="0.578" />
 
     <Button
-        android:id="@+id/button24"
+        android:id="@+id/b_pAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="postToAccountActivityButton"
         android:text="Profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.281"
+        app:layout_constraintHorizontal_bias="0.297"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.578" />
+
+    <Button
+        android:id="@+id/b_pVote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="postToVoteActivityButton"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.351"
+        tools:text="Vote" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,22 +10,19 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="142dp"
-        android:layout_marginLeft="142dp"
-        android:layout_marginTop="167dp"
-        android:layout_marginEnd="143dp"
-        android:layout_marginRight="143dp"
-        android:layout_marginBottom="545dp"
         android:text="Submit successfully"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.262" />
 
     <Button
-        android:id="@+id/button17"
+        android:id="@+id/b_sCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="submitToCreateActivityButton"
         android:text="CREATE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,9 +32,10 @@
         app:layout_constraintVertical_bias="0.472" />
 
     <Button
-        android:id="@+id/button18"
+        android:id="@+id/b_sVote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="submitToVoteActivityButton"
         android:text="VOTE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,9 +45,10 @@
         app:layout_constraintVertical_bias="0.37" />
 
     <Button
-        android:id="@+id/button19"
+        android:id="@+id/b_sAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="submitToAccountActivityButton"
         android:text="Profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,9 +58,10 @@
         app:layout_constraintVertical_bias="0.578" />
 
     <Button
-        android:id="@+id/button20"
+        android:id="@+id/b_sLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="submitLogoutButton"
         android:text="Logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
