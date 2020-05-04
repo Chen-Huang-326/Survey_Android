@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void registerActivityButton(View view){
-        Intent intent = new Intent(this, Registor.class);
+        Intent intent = new Intent(this, Register.class);
         startActivity(intent);
     }
 
