@@ -14,8 +14,4 @@ public class Create extends AppCompatActivity {
         setContentView(R.layout.activity_create);
     }
 
-    public void Enter (View v){
-        Intent intent = new Intent(Create.this,MainPage.class);
-        startActivity(intent);
-    }
 }
