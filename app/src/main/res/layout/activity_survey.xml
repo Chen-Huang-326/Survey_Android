@@ -110,6 +110,6 @@
         android:onClick="EditClear"
         android:text="CLEAR"
         app:layout_constraintStart_toEndOf="@+id/page_add_button"
-        app:layout_constraintTop_toBottomOf="@+id/Edit" />
+        app:layout_constraintTop_toBottomOf="@+id/Survey" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

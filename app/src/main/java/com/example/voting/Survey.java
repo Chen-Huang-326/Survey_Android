@@ -194,7 +194,9 @@ public class Survey extends AppCompatActivity {
         for (int i = 0; i < des_removeButtons.size(); i++){
             if (des_removeButtons.get(i) == v){
                 survey_layout.removeView(description_list.get(i));
+                survey_layout.removeView(des_removeButtons.get(i));
                 description_list.remove(i);
+                des_removeButtons.remove(i);
                 break;
             }
         }
@@ -204,8 +206,10 @@ public class Survey extends AppCompatActivity {
                 survey_layout.removeView(multiple_list.get(i));
                 ArrayList<CheckBox> choice = choice_list.get(i);
                 survey_layout.removeViews(0, choice.size());
+                survey_layout.removeView(mul_removeButtons.get(i));
                 multiple_list.remove(i);
                 choice_list.remove(i);
+                mul_removeButtons.remove(i);
                 break;
             }
         }
