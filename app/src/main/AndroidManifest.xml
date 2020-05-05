@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Question_text"></activity>
+        <activity android:name=".Question_text" />
         <activity android:name=".Question_multiple" />
         <activity android:name=".Question_description" />
         <activity android:name=".CreateTitle" />
@@ -18,10 +18,11 @@
             android:name=".MainPage"
             android:label="@string/title_activity_main_page" />
         <activity android:name=".Post" />
-        <activity android:name=".Submit" />e
+        <activity android:name=".Submit" />
         <activity android:name=".Vote" />
         <activity android:name=".Login" />
         <activity android:name=".Register" />
+        <activity android:name=".TypeSelection" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

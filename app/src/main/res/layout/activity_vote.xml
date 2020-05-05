@@ -6,33 +6,100 @@
     android:layout_height="match_parent"
     tools:context=".Vote">
 
-    <Button
-        android:id="@+id/voteBack"
+    <TextView
+        android:id="@+id/Vote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginLeft="17dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="306dp"
-        android:layout_marginRight="306dp"
-        android:layout_marginBottom="663dp"
-        android:onClick="clickVoteBack"
-        android:text="@string/back"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:text="@string/voting"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editText6"
+    <ImageButton
+        android:id="@+id/vote_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="search"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:background="?android:attr/windowBackground"
+        android:onClick="clickVoteBack"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.141" />
+        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+
+    <Button
+        android:id="@+id/vote_title_add_button"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?android:attr/windowBackground"
+        android:drawableRight="@drawable/ic_edit_black_24dp"
+        android:drawablePadding="@dimen/activity_horizontal_margin"
+        android:onClick="voteTitleEdit"
+        android:text="@string/enter_your_voting_title"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Vote" />
+
+    <ImageButton
+        android:id="@+id/vote_create_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="?android:attr/windowBackground"
+        android:onClick="QuestionOption"
+        app:layout_constraintEnd_toStartOf="@+id/vote_edit_save"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_add_black_24dp" />
+
+    <ImageButton
+        android:id="@+id/vote_edit_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_save_black_24dp" />
+
+
+    <TextView
+        android:id="@+id/vote_page_add_intro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Adding page"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/vote_edit_create"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/vote_edit_create"
+        android:layout_width="62dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="564dp"
+        android:layout_marginBottom="48dp"
+        android:background="#651A87B9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vote_title_add_button"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_add_black_24dp" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
