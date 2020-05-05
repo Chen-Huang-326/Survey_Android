@@ -2,9 +2,21 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mul_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Question_multiple">
+
+    <Button
+        android:id="@+id/mul_set_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:onClick="MulBack"
+        android:text="BACK"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/que_mul_title"
@@ -21,46 +33,53 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/setting"
+    <Button
+        android:id="@+id/mul_set_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="21dp"
-        android:text="Setting"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/que_mul_title" />
+        android:background="@null"
+        android:onClick="MulSubmit"
+        android:text="SUBMIT"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/choice_number"
+    <CheckBox
+        android:id="@+id/multiple_selection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="16dp"
-        android:text="Choice number"
+        android:layout_marginTop="8dp"
+        android:text="Multiple"
+        android:textColor="#040303"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/single_selecttion" />
+
+    <Switch
+        android:id="@+id/mul_compulsory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Compulsory     "
+        android:textColor="#040303"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/setting" />
+        app:layout_constraintTop_toBottomOf="@+id/multiple_selection" />
 
-    <EditText
-        android:id="@+id/choice_no_content"
-        android:layout_width="200dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:ems="10"
-        android:inputType="number"
-        android:textColor="#ACA8A8"
+    <TextView
+        android:id="@+id/selection_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Selection type"
+        android:textColor="#040303"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/choice_number"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/setting" />
 
     <CheckBox
@@ -71,72 +90,107 @@
         android:layout_marginLeft="24dp"
         android:layout_marginTop="8dp"
         android:text="Single"
+        android:textColor="#040303"
         app:layout_constraintBottom_toTopOf="@+id/multiple_selection"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selection_type" />
 
-    <CheckBox
-        android:id="@+id/multiple_selection"
+    <TextView
+        android:id="@+id/choice_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="8dp"
-        android:text="Multiple"
+        android:layout_marginTop="24dp"
+        android:text="Question"
+        android:textColor="#040303"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/single_selecttion" />
+        app:layout_constraintTop_toBottomOf="@+id/mul_compulsory" />
+
+    <EditText
+        android:id="@+id/mul_question_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Enter your question"
+        android:textColor="#ACA8A8"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.714"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/choice_number"
+        app:layout_constraintTop_toBottomOf="@+id/mul_compulsory" />
 
     <TextView
-        android:id="@+id/selection_type"
+        android:id="@+id/setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="21dp"
+        android:text="Setting"
+        android:textColor="#040303"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/que_mul_title" />
+
+    <TextView
+        android:id="@+id/mul_choice_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="32dp"
-        android:text="Selection type"
+        android:layout_marginTop="40dp"
+        android:text="Choice"
+        android:textColor="#040303"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/choice_number" />
 
-    <Switch
-        android:id="@+id/mul_compulsory"
+    <Button
+        android:id="@+id/mul_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:text="Compulsory"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/multiple_selection" />
+        android:onClick="MulAdd"
+        android:text="ADD"
+        app:layout_constraintStart_toEndOf="@+id/mul_choice_title"
+        app:layout_constraintTop_toBottomOf="@+id/choice_number" />
 
     <Button
-        android:id="@+id/mul_set_back"
+        android:id="@+id/mul_remove"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="48dp"
-        android:background="?android:attr/windowBackground"
-        android:onClick="MulBack"
-        android:text="BACK"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mul_compulsory" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:onClick="MulRemove"
+        android:text="REMOVE"
+        app:layout_constraintStart_toEndOf="@+id/mul_add"
+        app:layout_constraintTop_toBottomOf="@+id/choice_number" />
 
-    <Button
-        android:id="@+id/mul_set_next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:background="?android:attr/windowBackground"
-        android:onClick="MulNext"
-        android:text="NEXT"
-        android:textSize="20sp"
+    <ScrollView
+        android:layout_width="334dp"
+        android:layout_height="289dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mul_compulsory" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mul_add">
+
+        <LinearLayout
+            android:id="@+id/choice_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

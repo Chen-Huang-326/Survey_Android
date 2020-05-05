@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Multiple_detail"></activity>
         <activity android:name=".Question_text" />
         <activity android:name=".Account" />
         <activity android:name=".Visitor" />
