@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loginActivityButton(View view){
-        Intent intent = new Intent(this, Login.class);
+        Intent intent = new Intent(this, MainPage.class);
         startActivity(intent);
     }
 

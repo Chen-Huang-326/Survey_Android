@@ -22,10 +22,16 @@
         <activity android:name=".Question_multiple" />
         <activity android:name=".Question_description" />
         <activity android:name=".CreateTitle" />
-        <activity android:name=".Edit" />
+        <activity android:name=".Survey" />
         <activity
             android:name=".MainPage"
             android:label="@string/title_activity_main_page" />
+        <activity android:name=".Post" />
+        <activity android:name=".Submit" />
+        <activity android:name=".Vote" />
+        <activity android:name=".Login" />
+        <activity android:name=".Register" />
+        <activity android:name=".TypeSelection" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

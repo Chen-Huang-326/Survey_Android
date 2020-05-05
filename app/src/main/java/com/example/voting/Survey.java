@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class Edit extends AppCompatActivity {
+public class Survey extends AppCompatActivity {
 
     private ArrayList<TextView> description_list = new ArrayList<>(); // Storing description content
     private ArrayList<TextView> multiple_list = new ArrayList<>(); // Storing multiple question
@@ -28,7 +28,7 @@ public class Edit extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit);
+        setContentView(R.layout.activity_survey);
     }
 
     /**
@@ -37,10 +37,10 @@ public class Edit extends AppCompatActivity {
      * question types include "Multiple choice" "Paragraph" "Text (Open question)"
      * @param v
      */
-    
+
     //TODO: task 6 - Advanced feature: Survey (TBD)
     public void QuestionOption (View v){
-        PopupMenu popupMenu = new PopupMenu(Edit.this, v);
+        PopupMenu popupMenu = new PopupMenu(Survey.this, v);
         popupMenu.getMenuInflater().inflate(R.menu.question_type,popupMenu.getMenu());
         popupMenu.show();
 
@@ -49,15 +49,15 @@ public class Edit extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.description:
-                        Intent intentI = new Intent(Edit.this, Question_description.class);
+                        Intent intentI = new Intent(Survey.this, Question_description.class);
                         startActivityForResult(intentI,2);
                         break;
                     case R.id.multiple_choice:
-                        Intent intentII = new Intent(Edit.this, Question_multiple.class);
+                        Intent intentII = new Intent(Survey.this, Question_multiple.class);
                         startActivityForResult(intentII,3);
                         break;
                     case R.id.open_question:
-                        Intent intentIII = new Intent(Edit.this, Question_text.class);
+                        Intent intentIII = new Intent(Survey.this, Question_text.class);
                         startActivityForResult(intentIII,4);
                         break;
                 }
@@ -87,7 +87,7 @@ public class Edit extends AppCompatActivity {
      * @param v
      */
     public void TitleEdit (View v){
-        Intent intent = new Intent(Edit.this, CreateTitle.class);
+        Intent intent = new Intent(Survey.this, CreateTitle.class);
         startActivityForResult(intent,1);
     }
 
