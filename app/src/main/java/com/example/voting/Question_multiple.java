@@ -30,7 +30,7 @@ public class Question_multiple extends AppCompatActivity {
 
     }
 
-    //TODO: task 1 - Adding/deleting an topic with a set of options
+    //TODO: task 1.1 - Adding an topic with a set of options
 
     /**
      * Actively create EditViews when click the button "ADD"
