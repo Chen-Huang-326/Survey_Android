@@ -6,33 +6,69 @@
     android:layout_height="match_parent"
     tools:context=".ui.survey.SurveyFragment">
 
+
     <TextView
         android:id="@+id/text_survey"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="My survey"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:text="@string/create_yours"
         android:textAlignment="center"
-        android:textSize="30sp"
+        android:textColor="#4D4D4D"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center_horizontal" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/CreateNewSurvey"
-        android:layout_width="379dp"
-        android:layout_height="123dp"
-        android:layout_marginTop="16dp"
-        android:background="#778AC744"
-        android:contentDescription="Create a new survey"
-        android:fadeScrollbars="true"
-        android:focusable="auto"
-        android:src="@drawable/ic_add_black_24dp"
+
+    <Button
+        android:id="@+id/voting"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="1dp"
+        android:background="@drawable/survey_button_drawable"
+        android:drawableStart="@drawable/ic_check_box_black_24dp"
+        android:drawablePadding="0dp"
+        android:drawableTint="#F8B33A"
+        android:paddingHorizontal="@dimen/activity_horizontal_margin"
+        android:text="@string/voting"
+        android:textColor="#F8B33A"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_survey" />
+
+    <Button
+        android:id="@+id/survey"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="1dp"
+        android:background="@drawable/survey_button_drawable"
+        android:drawableStart="@drawable/ic_content_paste_black_24dp"
+        android:drawableTint="#F8B33A"
+        android:paddingHorizontal="@dimen/activity_horizontal_margin"
+        android:text="@string/survey"
+        android:textColor="#F8B33A"
+        android:textSize="18dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/voting" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="115dp"
+        android:layout_marginBottom="25dp"
+        android:src="@drawable/ic_insert_emoticon_black_24dp"
+        app:layout_constraintBottom_toTopOf="@+id/voting"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,10 +10,12 @@ public class SurveyViewModel extends ViewModel {
 
     public SurveyViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("My Survey");
+        mText.setValue("Create yours!");
     }
 
     public LiveData<String> getText() {
         return mText;
     }
+
+
 }

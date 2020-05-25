@@ -6,14 +6,156 @@
     android:layout_height="match_parent"
     tools:context=".ui.account.AccountFragment">
 
-    <TextView
-        android:id="@+id/SurveyFragment_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="Account"
-        android:textSize="30sp"
+    <ImageView
+        android:id="@+id/account_photo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:src="@drawable/ic_face_black_24dp"
+        android:tint="#595656"
+        android:background="@drawable/circle_shape_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/account_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:text="Username: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account_photo" />
+
+    <TextView
+        android:id="@+id/show_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:text="username"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/account_username"
+        app:layout_constraintTop_toBottomOf="@+id/account_photo" />
+
+    <TextView
+        android:id="@+id/account_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Gender: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account_username" />
+
+    <TextView
+        android:id="@+id/account_birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Date of birth: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account_gender" />
+
+    <EditText
+        android:id="@+id/birth_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="date"
+        android:textSize="15dp"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/account_birthday"
+        app:layout_constraintTop_toBottomOf="@+id/account_gender" />
+
+    <TextView
+        android:id="@+id/account_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="E-mail: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account_birthday" />
+
+    <EditText
+        android:id="@+id/input_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:textSize="15dp"
+        android:textColor="#000000"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toEndOf="@+id/account_email"
+        app:layout_constraintTop_toBottomOf="@+id/account_birthday" />
+
+    <TextView
+        android:id="@+id/account_school"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="School: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account_email" />
+
+    <EditText
+        android:id="@+id/input_school"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
+        android:textSize="15dp"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/account_school"
+        app:layout_constraintTop_toBottomOf="@+id/account_email" />
+
+    <CheckBox
+        android:id="@+id/female_checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="13dp"
+        android:text="Female"
+        app:layout_constraintStart_toEndOf="@+id/account_gender"
+        app:layout_constraintTop_toBottomOf="@+id/account_username"/>
+    <CheckBox
+        android:id="@+id/male_checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="13dp"
+        android:text="Male"
+        app:layout_constraintStart_toEndOf="@+id/female_checkBox"
+        app:layout_constraintTop_toBottomOf="@+id/account_username" />
+    <CheckBox
+        android:id="@+id/transgender_checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="13dp"
+        android:text="Transgender"
+        app:layout_constraintStart_toEndOf="@+id/male_checkBox"
+        app:layout_constraintTop_toBottomOf="@+id/account_username" />
+
+    <ImageButton
+        android:id="@+id/changePhoto"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="163dp"
+        android:layout_marginBottom="60dp"
+        android:backgroundTint="#FFFFFF"
+        android:tint="#565956"
+        android:src="@drawable/ic_add_a_photo_black_24dp"
+        app:layout_constraintBottom_toTopOf="@+id/transgender_checkBox"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
