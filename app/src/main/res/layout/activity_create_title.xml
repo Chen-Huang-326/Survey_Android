@@ -41,6 +41,8 @@
         android:layout_marginLeft="80dp"
         android:layout_marginTop="8dp"
         android:onClick="TitleBack"
+        android:background="@drawable/main_button_drawable"
+        android:textColor="#FFFFFF"
         android:text="BACK"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_input" />
@@ -52,6 +54,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
+        android:background="@drawable/main_button_drawable"
+        android:textColor="#FFFFFF"
         android:onClick="TitleSubmit"
         android:text="SUBMIT"
         app:layout_constraintEnd_toEndOf="parent"

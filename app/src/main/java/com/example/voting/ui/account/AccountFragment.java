@@ -23,6 +23,7 @@ public class AccountFragment extends Fragment {
         accountViewModel =
                 ViewModelProviders.of(this).get(AccountViewModel.class);
         View root = inflater.inflate(R.layout.fragment_account, container, false);
+        /*
         final TextView textView = root.findViewById(R.id.SurveyFragment_title);
         accountViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
@@ -30,6 +31,8 @@ public class AccountFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
+         */
         return root;
     }
 }

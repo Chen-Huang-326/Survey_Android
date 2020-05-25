@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,13 +15,14 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.voting.R;
-import com.example.voting.TypeSelection;
-import com.example.voting.ui.survey.SurveyViewModel;
+import com.example.voting.Survey;
+import com.example.voting.Vote;
 
 public class SurveyFragment extends Fragment {
 
     private SurveyViewModel surveyViewModel;
-    private ImageButton btnSurvey;
+    private Button btnSurvey;
+    private Button btnVoting;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -40,13 +41,24 @@ public class SurveyFragment extends Fragment {
 
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        btnSurvey = (ImageButton) getActivity().findViewById(R.id.CreateNewSurvey);
+
+        btnSurvey = getActivity().findViewById(R.id.survey);
         btnSurvey.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TypeSelection.class);
+                Intent intent = new Intent(getActivity(),Survey.class);
                 startActivity(intent);
             }
         });
+
+        btnVoting = getActivity().findViewById(R.id.voting);
+        btnVoting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),Vote.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

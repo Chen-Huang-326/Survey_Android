@@ -31,7 +31,6 @@
         <activity android:name=".Vote" />
         <activity android:name=".Login" />
         <activity android:name=".Register" />
-        <activity android:name=".TypeSelection" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

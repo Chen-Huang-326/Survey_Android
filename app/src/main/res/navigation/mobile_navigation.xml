@@ -14,12 +14,12 @@
     <fragment
         android:id="@+id/navigation_survey"
         android:name="com.example.voting.ui.survey.SurveyFragment"
-        android:label="Survey"
+        android:label="@string/title_create"
         tools:layout="@layout/fragment_survey" />
 
     <fragment
         android:id="@+id/navigation_account"
         android:name="com.example.voting.ui.account.AccountFragment"
-        android:label="Account"
-        tools:layout="@layout/fragment_account"/>
+        android:label="@string/title_account"
+        tools:layout="@layout/fragment_account" />
 </navigation>

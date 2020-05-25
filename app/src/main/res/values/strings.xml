@@ -1,13 +1,15 @@
 <resources>
-    <string name="app_name">Voting</string>
+    <string name="app_name">Vote What Vote</string>
     <string name="title_activity_main_page">MainPage</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">Find</string>
+    <string name="title_create">Create</string>
+    <string name="title_account">Account</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="typeSelection">Select create type</string>
     <string name="survey">Survey</string>
     <string name="voting">Voting</string>
 
     <string name="back">Back</string>
     <string name="enter_your_voting_title">Enter your voting title</string>
+    <string name="create_yours">Create yours!</string>
 </resources>
