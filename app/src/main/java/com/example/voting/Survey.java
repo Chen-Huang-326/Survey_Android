@@ -211,6 +211,7 @@ public class Survey extends AppCompatActivity {
                 choice_list.remove(i);
                 mul_removeButtons.remove(i);
                 break;
+                
             }
         }
     }
