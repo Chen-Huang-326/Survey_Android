@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             boolean judge = DBUtils.loginJudge(name,pass);
             if(judge){
                 Intent intent = new Intent(this, MainPage.class);
+                intent.putExtra("username",name);
                 startActivity(intent);
             }else{
                 Toast.makeText(MainActivity.this,"failed", Toast.LENGTH_LONG).show();
