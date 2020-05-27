@@ -1,16 +1,17 @@
 package com.example.voting;
 
-import android.content.DialogInterface;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
+import com.example.voting.ui.home.HomeFragment;
+import com.example.voting.ui.account.AccountFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -33,6 +34,17 @@ public class MainPage extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("username");
+//        EditText username = findViewById(R.id.input_email);
+//        username.setText(kkk);
+
+//        AccountFragment accountFragment = new AccountFragment();
+//        Bundle bundle = new Bundle();
+//        bundle.putString("username", name);
+//        accountFragment.setArguments(bundle);
+
     }
 
 }

@@ -7,8 +7,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -23,12 +28,18 @@ public class Question_multiple extends AppCompatActivity {
 
     private ArrayList<LinearLayout> layouts = new ArrayList<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN|
+                WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_question_multiple);
 
     }
+
+
 
     //TODO: task 1.1 - Adding an topic with a set of options
 
@@ -68,19 +79,32 @@ public class Question_multiple extends AppCompatActivity {
     }
 
     public void MulSubmit (View v) {
-        textContents.clear();
-        Intent intent = new Intent();
-        EditText question = (EditText)findViewById(R.id.mul_question_content);
-        String q = question.getText().toString();
-        textContents.add(q);
+        EditText selected_limitation = (EditText) findViewById(R.id.limited_num);
+        int limited = Integer.parseInt(selected_limitation.getText().toString());
+        int choiceNum = editTexts.size();
+        if (limited > choiceNum) {
+            Toast.makeText(this,"Selected limitation cannot over the choice number", Toast.LENGTH_SHORT).show();
+        } else {
+            textContents.clear();
+            Intent intent = new Intent();
+            EditText question = (EditText) findViewById(R.id.mul_question_content);
+            String q = question.getText().toString();
+            if (limited == 1){
+                q += ("\n" + "(Single choice)");
+            }
+            if (limited > 1) {
+                q += ("\n" + "(Please select 1 or " + limited + " options)");
+            }
+            textContents.add(q);
 
-        int n = editTexts.size();
-        for (int i = 0; i < n; i++) {
-            textContents.add(editTexts.get(i).getText().toString());
+            int n = editTexts.size();
+            for (int i = 0; i < n; i++) {
+                textContents.add(editTexts.get(i).getText().toString());
+            }
+            intent.putStringArrayListExtra("multiple_choice", textContents);
+            setResult(RESULT_OK, intent);
+            finish();
         }
-        intent.putStringArrayListExtra("multiple_choice",textContents);
-        setResult(RESULT_OK,intent);
-        finish();
     }
 
 }
