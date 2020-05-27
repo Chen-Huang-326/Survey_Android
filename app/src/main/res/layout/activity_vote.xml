@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="0dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Vote">
@@ -42,17 +46,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
 
-    <ImageButton
-        android:id="@+id/vote_edit_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="#FB5655"
-        android:tint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_save_black_24dp" />
-
 
     <EditText
         android:id="@+id/vote_title_edit"
@@ -60,18 +53,43 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginEnd="30dp"
         android:hint="Enter Your Voting Title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Vote" />
+    <ImageButton
+        android:id="@+id/remove_title"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="10dp"
+        android:tint="#AAAAAA"
+        android:background="#FFFFFF"
+        android:onClick="clickTitleRemove"
+        app:layout_constraintStart_toEndOf="@id/vote_title_edit"
+        app:layout_constraintBottom_toBottomOf="@id/vote_title_edit"
+        app:srcCompat="@drawable/ic_cancel_black_24dp" />
 
-
+    <TextView
+        android:id="@+id/saved_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:textStyle="italic"
+        android:text=""
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Vote" />
 
     <EditText
         android:id="@+id/option_one"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="60dp"
@@ -82,10 +100,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vote_title_edit" />
 
+    <TextView
+        android:id="@+id/saved_option_one"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="1dp"
+        android:background="@drawable/survey_button_drawable"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#4D4D4D"
+        android:textSize="20dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saved_title" />
+
     <EditText
         android:id="@+id/option_two"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="60dp"
@@ -96,6 +131,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/option_one" />
 
+    <TextView
+        android:id="@+id/saved_option_two"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="1dp"
+        android:background="@drawable/survey_button_drawable"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#4D4D4D"
+        android:textSize="20dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saved_option_one" />
     <Button
         android:id="@+id/add_option3"
         android:layout_width="170dp"
@@ -117,7 +168,7 @@
     <EditText
         android:id="@+id/option_three"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="60dp"
@@ -128,6 +179,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/option_two" />
+
+    <TextView
+        android:id="@+id/saved_option_three"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="1dp"
+        android:background="@drawable/survey_button_drawable"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#4D4D4D"
+        android:textSize="20dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saved_option_two" />
 
     <ImageButton
         android:id="@+id/remove_option3"
@@ -163,7 +231,7 @@
     <EditText
         android:id="@+id/option_four"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="60dp"
@@ -174,6 +242,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/option_three" />
+    <TextView
+        android:id="@+id/saved_option_four"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="1dp"
+        android:background="@drawable/survey_button_drawable"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#4D4D4D"
+        android:textSize="20dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saved_option_three" />
 
     <ImageButton
         android:id="@+id/remove_option4"
@@ -209,7 +293,7 @@
     <EditText
         android:id="@+id/option_five"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="60dp"
@@ -220,6 +304,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/option_four" />
+
+    <TextView
+        android:id="@+id/saved_option_five"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="1dp"
+        android:background="@drawable/survey_button_drawable"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#4D4D4D"
+        android:textSize="20dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saved_option_four" />
 
     <ImageButton
         android:id="@+id/remove_option5"
@@ -235,5 +336,61 @@
         app:layout_constraintTop_toTopOf="@id/option_five"
         app:srcCompat="@drawable/ic_cancel_black_24dp" />
 
+    <Button
+        android:id="@+id/save_Voting_page"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="1dp"
+        android:background="@drawable/submit_button"
+        android:drawableStart="@drawable/ic_save_black_24dp"
+        android:drawableTint="#FFFFFF"
+        android:paddingHorizontal="@dimen/activity_horizontal_margin"
+        android:text="Save"
+        android:onClick="showSavedVoting"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/option_five" />
+
+    <Button
+        android:id="@+id/submit_voting"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="500dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/submit_button"
+        android:drawableStart="@drawable/ic_cloud_upload_black_24dp"
+        android:drawableTint="#FFFFFF"
+        android:paddingHorizontal="@dimen/activity_horizontal_margin"
+        android:text=" Submit"
+        android:textColor="#FFFFFF"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/save_Voting_page"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saved_option_five" />
+
+    <Button
+        android:id="@+id/re_edit_voting"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/submit_button"
+        android:drawableStart="@drawable/ic_tune_black_24dp"
+        android:drawableTint="#FFFFFF"
+        android:paddingHorizontal="@dimen/activity_horizontal_margin"
+        android:text=" Re-edit"
+        android:onClick="re_editVoting"
+        android:textColor="#FFFFFF"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/saved_option_five" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

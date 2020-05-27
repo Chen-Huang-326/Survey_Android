@@ -32,7 +32,10 @@ public class Vote extends AppCompatActivity {
         setResult(RESULT_OK,intent);
         finish();
     }
-
+    public void clickTitleRemove (View v){
+        EditText edit_title = findViewById(R.id.vote_title_edit);
+        edit_title.setText("");
+    }
     public void clickAddOption3(View v){
         final EditText optionThree = findViewById(R.id.option_three);
         Button addOption3 = findViewById(R.id.add_option3);
@@ -59,6 +62,7 @@ public class Vote extends AppCompatActivity {
         if (optionFour.getVisibility()==View.INVISIBLE && optionFive.getVisibility()==View.INVISIBLE) {
             addOption3.setVisibility(View.VISIBLE);
             addOption4.setVisibility(View.INVISIBLE);
+            optionThree.setText("");
             optionThree.setVisibility(View.INVISIBLE);
             removeOption3.setVisibility(View.INVISIBLE);
         }
@@ -101,6 +105,7 @@ public class Vote extends AppCompatActivity {
         if (optionFive.getVisibility()==View.INVISIBLE){
             addOption4.setVisibility(View.VISIBLE);
             addOption5.setVisibility(View.INVISIBLE);
+            optionFour.setText("");
             optionFour.setVisibility(View.INVISIBLE);
             removeOption4.setVisibility(View.INVISIBLE);
         }
@@ -128,6 +133,7 @@ public class Vote extends AppCompatActivity {
         Button addOption5 = findViewById(R.id.add_option5);
         addOption5.setVisibility(View.VISIBLE);
         optionFive.setVisibility(View.INVISIBLE);
+        optionFive.setText("");
         removeOption5.setVisibility(View.INVISIBLE);
     }
 
@@ -136,7 +142,136 @@ public class Vote extends AppCompatActivity {
      * Set the function to edit the survey topic title;
      * @param v
      */
-    public void voteTitleEdit (View v){
+    public void showSavedVoting (View v){
+        final EditText edit_title = findViewById(R.id.vote_title_edit);
+        TextView saved_title = findViewById(R.id.saved_title);
+        EditText edit_option_one = findViewById(R.id.option_one);
+        TextView saved_option_one = findViewById(R.id.saved_option_one);
+        EditText edit_option_two = findViewById(R.id.option_two);
+        TextView saved_option_two = findViewById(R.id.saved_option_two);
+        EditText edit_option_three = findViewById(R.id.option_three);
+        TextView saved_option_three = findViewById(R.id.saved_option_three);
+        EditText edit_option_four = findViewById(R.id.option_four);
+        TextView saved_option_four = findViewById(R.id.saved_option_four);
+        EditText edit_option_five = findViewById(R.id.option_five);
+        TextView saved_option_five = findViewById(R.id.saved_option_five);
+        Button add_option3_button = findViewById(R.id.add_option3);
+        Button add_option4_button = findViewById(R.id.add_option4);
+        Button add_option5_button = findViewById(R.id.add_option5);
+        ImageButton remove_title = findViewById(R.id.remove_title);
+        ImageButton remove_option3 = findViewById(R.id.remove_option3);
+        ImageButton remove_option4 = findViewById(R.id.remove_option4);
+        ImageButton remove_option5 = findViewById(R.id.remove_option5);
+        Button save_button = findViewById(R.id.save_Voting_page);
+        Button re_edit_button = findViewById(R.id.re_edit_voting);
+        Button submit_button = findViewById(R.id.submit_voting);
+
+        edit_title.setVisibility(View.INVISIBLE);
+        saved_title.setVisibility(View.VISIBLE);
+        saved_title.setText(edit_title.getText());
+        remove_title.setVisibility(View.INVISIBLE);
+
+        edit_option_one.setVisibility(View.INVISIBLE);
+        saved_option_one.setVisibility(View.VISIBLE);
+        saved_option_one.setText(edit_option_one.getText());
+
+        edit_option_two.setVisibility(View.INVISIBLE);
+        saved_option_two.setVisibility(View.VISIBLE);
+        saved_option_two.setText(edit_option_two.getText());
+        add_option3_button.setVisibility(View.INVISIBLE);
+        if (edit_option_three.getVisibility()==View.VISIBLE){
+            edit_option_three.setVisibility(View.INVISIBLE);
+            saved_option_three.setVisibility(View.VISIBLE);
+            saved_option_three.setText(edit_option_three.getText());
+            add_option4_button.setVisibility(View.INVISIBLE);
+            remove_option3.setVisibility(View.INVISIBLE);
+        }
+        if (edit_option_four.getVisibility()==View.VISIBLE){
+            edit_option_four.setVisibility(View.INVISIBLE);
+            saved_option_four.setVisibility(View.VISIBLE);
+            saved_option_four.setText(edit_option_four.getText());
+            add_option5_button.setVisibility(View.INVISIBLE);
+            remove_option4.setVisibility(View.INVISIBLE);
+        }
+        if (edit_option_five.getVisibility()==View.VISIBLE){
+            edit_option_five.setVisibility(View.INVISIBLE);
+            saved_option_five.setVisibility(View.VISIBLE);
+            saved_option_five.setText(edit_option_five.getText());
+            remove_option5.setVisibility(View.INVISIBLE);
+        }
+        save_button.setVisibility(View.INVISIBLE);
+        re_edit_button.setVisibility(View.VISIBLE);
+        submit_button.setVisibility(View.VISIBLE);
+    }
+
+    public void re_editVoting(View v){
+        final EditText edit_title = findViewById(R.id.vote_title_edit);
+        TextView saved_title = findViewById(R.id.saved_title);
+        EditText edit_option_one = findViewById(R.id.option_one);
+        TextView saved_option_one = findViewById(R.id.saved_option_one);
+        EditText edit_option_two = findViewById(R.id.option_two);
+        TextView saved_option_two = findViewById(R.id.saved_option_two);
+        EditText edit_option_three = findViewById(R.id.option_three);
+        TextView saved_option_three = findViewById(R.id.saved_option_three);
+        EditText edit_option_four = findViewById(R.id.option_four);
+        TextView saved_option_four = findViewById(R.id.saved_option_four);
+        EditText edit_option_five = findViewById(R.id.option_five);
+        TextView saved_option_five = findViewById(R.id.saved_option_five);
+        Button add_option3_button = findViewById(R.id.add_option3);
+        Button add_option4_button = findViewById(R.id.add_option4);
+        Button add_option5_button = findViewById(R.id.add_option5);
+        ImageButton remove_title = findViewById(R.id.remove_title);
+        ImageButton remove_option3 = findViewById(R.id.remove_option3);
+        ImageButton remove_option4 = findViewById(R.id.remove_option4);
+        ImageButton remove_option5 = findViewById(R.id.remove_option5);
+        Button save_button = findViewById(R.id.save_Voting_page);
+        Button re_edit_button = findViewById(R.id.re_edit_voting);
+        Button submit_button = findViewById(R.id.submit_voting);
+
+        edit_title.setVisibility(View.VISIBLE);
+        saved_title.setVisibility(View.INVISIBLE);
+        saved_title.setText("");
+        remove_title.setVisibility(View.VISIBLE);
+
+        edit_option_one.setVisibility(View.VISIBLE);
+        saved_option_one.setVisibility(View.INVISIBLE);
+        saved_option_one.setText("");
+
+        edit_option_two.setVisibility(View.VISIBLE);
+        saved_option_two.setVisibility(View.INVISIBLE);
+        saved_option_two.setText("");
+
+        if (saved_option_three.getVisibility()==View.INVISIBLE){
+            add_option3_button.setVisibility(View.VISIBLE);
+        }
+
+        if (saved_option_three.getVisibility()==View.VISIBLE){
+            edit_option_three.setVisibility(View.VISIBLE);
+            saved_option_three.setVisibility(View.INVISIBLE);
+            saved_option_three.setText("");
+            remove_option3.setVisibility(View.VISIBLE);
+            add_option4_button.setVisibility(View.VISIBLE);
+        }
+        if (saved_option_four.getVisibility()==View.VISIBLE){
+            edit_option_four.setVisibility(View.VISIBLE);
+            saved_option_four.setVisibility(View.INVISIBLE);
+            saved_option_four.setText("");
+            remove_option4.setVisibility(View.VISIBLE);
+            add_option4_button.setVisibility(View.INVISIBLE);
+            add_option5_button.setVisibility(View.VISIBLE);
+        }
+        if (saved_option_five.getVisibility()==View.VISIBLE){
+            edit_option_five.setVisibility(View.VISIBLE);
+            saved_option_five.setVisibility(View.INVISIBLE);
+            saved_option_five.setText("");
+            remove_option5.setVisibility(View.VISIBLE);
+            add_option5_button.setVisibility(View.INVISIBLE);
+        }
+
+
+        save_button.setVisibility(View.VISIBLE);
+        re_edit_button.setVisibility(View.INVISIBLE);
+        submit_button.setVisibility(View.INVISIBLE);
 
     }
 }
