@@ -7,7 +7,7 @@
     tools:context=".CreateTitle">
 
     <TextView
-        android:id="@+id/survey_title"
+        android:id="@+id/sur_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
@@ -31,7 +31,7 @@
         android:textColor="#ACA8A8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/survey_title" />
+        app:layout_constraintTop_toBottomOf="@+id/sur_title" />
 
     <Button
         android:id="@+id/Title_back"

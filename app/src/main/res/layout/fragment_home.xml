@@ -10,12 +10,49 @@
         android:id="@+id/text_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Home"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:text="Find_yours"
         android:textAlignment="center"
-        android:textSize="30sp"
+        android:textColor="#4D4D4D"
+        android:textSize="20dp" />
+
+
+    <Button
+        android:id="@+id/find_voting"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/survey_button_drawable"
+        android:drawableStart="@drawable/ic_check_box_black_24dp"
+        android:drawablePadding="0dp"
+        android:drawableTint="#F8B33A"
+        android:onClick="Nav_to_Vote"
+        android:paddingHorizontal="@dimen/activity_horizontal_margin"
+        android:text="@string/voting"
+        android:textColor="#F8B33A"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/text_home" />
+
+    <Button
+        android:id="@+id/find_survey"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/survey_button_drawable"
+        android:drawableStart="@drawable/ic_content_paste_black_24dp"
+        android:drawableTint="#F8B33A"
+        android:onClick="NavToSurvey"
+
+        android:paddingHorizontal="@dimen/activity_horizontal_margin"
+        android:text="@string/survey"
+        android:textColor="#F8B33A"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/find_voting" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

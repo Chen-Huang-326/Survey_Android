@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/survey_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Survey">
 
     <TextView
         android:id="@+id/Survey"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
         android:text="@string/survey"
+        android:textColor="?android:attr/windowBackground"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,8 +29,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="?android:attr/windowBackground"
+        android:background="@color/colorPrimary"
         android:onClick="Back"
+        android:tint="?android:attr/windowBackground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
@@ -37,7 +41,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="?android:attr/windowBackground"
+        android:background="@color/colorPrimary"
+        android:onClick="Submit"
+        android:tint="?android:attr/windowBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_save_black_24dp" />
@@ -55,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/Survey" />
 
     <ImageButton
-        android:id="@+id/page_add_button"
+        android:id="@+id/title_edit_button"
         android:layout_width="18dp"
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
@@ -73,8 +79,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:background="?android:attr/windowBackground"
+        android:background="@color/colorPrimary"
         android:onClick="QuestionOption"
+        android:tint="?android:attr/windowBackground"
         app:layout_constraintEnd_toStartOf="@+id/Edit_save"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_add_black_24dp" />
@@ -108,7 +115,7 @@
         android:background="@null"
         android:onClick="EditClear"
         android:text="CLEAR"
-        app:layout_constraintStart_toEndOf="@+id/page_add_button"
+        app:layout_constraintStart_toEndOf="@+id/title_edit_button"
         app:layout_constraintTop_toBottomOf="@+id/Survey" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
