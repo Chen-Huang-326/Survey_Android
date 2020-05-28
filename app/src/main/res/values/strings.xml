@@ -12,4 +12,5 @@
     <string name="back">Back</string>
     <string name="enter_your_voting_title">Enter your voting title</string>
     <string name="create_yours">Create yours!</string>
+    <string name="confirm_and_vote">Confirm and vote</string>
 </resources>

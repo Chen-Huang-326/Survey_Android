@@ -85,27 +85,59 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Vote" />
+    <TextView
+        android:id="@+id/due_date_title"
+        app:layout_constraintEnd_toStartOf="@id/vote_due_date_edit"
+        app:layout_constraintTop_toBottomOf="@id/vote_title_edit"
+        android:layout_marginTop="13dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="wrap_content"
+        android:text="Deadline: "
+        android:layout_height="20dp"/>
+    <EditText
+        android:id="@+id/vote_due_date_edit"
+        app:layout_constraintTop_toBottomOf="@id/vote_title_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="30dp"
+        android:hint="DD/MM/YYYY"
+        android:textSize="13sp"
+        android:layout_marginTop="3dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:id="@+id/saved_vote_due_date"
+        app:layout_constraintTop_toBottomOf="@id/saved_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="40dp"
+        android:layout_width="wrap_content"
+        android:text="DD/MM/YYYY"
+        android:visibility="invisible"
+        android:textSize="15dp"
+        android:layout_height="20dp"/>
 
     <EditText
         android:id="@+id/option_one"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="60dp"
         android:background="#EEEEEE"
         android:hint="   Enter your first option"
         android:textColor="#AAAAAA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vote_title_edit" />
+        app:layout_constraintTop_toBottomOf="@+id/vote_due_date_edit" />
 
     <TextView
         android:id="@+id/saved_option_one"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="1dp"
         android:background="@drawable/survey_button_drawable"
         android:gravity="center"
@@ -115,7 +147,7 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/saved_title" />
+        app:layout_constraintTop_toBottomOf="@+id/saved_vote_due_date" />
 
     <EditText
         android:id="@+id/option_two"
@@ -364,6 +396,7 @@
         android:background="@drawable/submit_button"
         android:drawableStart="@drawable/ic_cloud_upload_black_24dp"
         android:drawableTint="#FFFFFF"
+        android:onClick="create_vote_submit"
         android:paddingHorizontal="@dimen/activity_horizontal_margin"
         android:text=" Submit"
         android:textColor="#FFFFFF"

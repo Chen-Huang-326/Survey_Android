@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".pollVote"></activity>
-        <activity android:name=".pollSurvey" />
+        <activity android:name=".PollVote"></activity>
+        <activity android:name=".PollSurvey" />
         <activity android:name=".FindVote" />
         <activity android:name=".FindSurvey" />
         <activity android:name=".Question_text" />

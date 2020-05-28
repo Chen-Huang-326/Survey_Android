@@ -6,7 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.voting.MainActivity;
 import com.example.voting.R;
 import com.example.voting.Survey;
 import com.example.voting.Vote;
@@ -24,6 +27,8 @@ public class SurveyFragment extends Fragment {
     private Button btnSurvey;
     private Button btnVoting;
 
+
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         surveyViewModel =
@@ -41,13 +46,16 @@ public class SurveyFragment extends Fragment {
 
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
         btnSurvey = getActivity().findViewById(R.id.survey);
         btnSurvey.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),Survey.class);
-                startActivity(intent);
+                if (MainActivity.myUsername!=""){
+                    Intent intent = new Intent(getActivity(),Survey.class);
+                    startActivity(intent);}
+                else {
+                    Toast.makeText(getActivity(),"No Access!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -55,8 +63,14 @@ public class SurveyFragment extends Fragment {
         btnVoting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),Vote.class);
-                startActivity(intent);
+                if (MainActivity.myUsername!=""){
+                    Intent intent = new Intent(getActivity(),Vote.class);
+                    startActivity(intent);
+                    }
+                else {
+                    Toast.makeText(getActivity(),"No Access!", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 

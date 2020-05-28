@@ -8,17 +8,15 @@
 
     <TextView
         android:id="@+id/que_dec_title"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
         android:text="Description"
-        android:textSize="35sp"
+        android:textSize="30sp"
         android:gravity="center"
-        android:textColor="?android:attr/windowBackground"
-        android:background="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,14 +25,14 @@
         android:id="@+id/question_content"
         android:layout_width="376dp"
         android:layout_height="48dp"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="10dp"
         android:layout_marginLeft="1dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginRight="1dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Enter your question"
+        android:hint="Enter your question"
         android:textColor="#ACA8A8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,6 +47,8 @@
         android:layout_marginTop="16dp"
         android:onClick="DescriptionBack"
         android:text="BACK"
+        android:background="@drawable/main_button_drawable"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/question_content" />
 
@@ -61,6 +61,8 @@
         android:layout_marginRight="80dp"
         android:onClick="DescriptionSubmit"
         android:text="SUBMIT"
+        android:background="@drawable/main_button_drawable"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/question_content" />
 

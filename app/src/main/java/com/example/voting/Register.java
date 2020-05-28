@@ -24,18 +24,18 @@ public class Register extends AppCompatActivity {
         String pass = password.getText().toString();
         String con = confirm.getText().toString();
         if(name == null || "".equals(name) || pass == null || "".equals(pass) ){
-            Toast.makeText(Register.this,"输入不能为空", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Register.this,"the input cannot be empty", Toast.LENGTH_SHORT).show();
         }else{
             if(!pass.equals(con)){
-                Toast.makeText(Register.this,"密码不一致", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Register.this,"inconsistent password", Toast.LENGTH_SHORT).show();
             }else{
                 boolean judge = DBUtils.register(name,pass);
                 if(judge){
-                    Toast.makeText(Register.this,"注册成功", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this, Login.class);
+                    Toast.makeText(Register.this,"registered successfully", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, MainActivity.class);
                     startActivity(intent);
                 }else{
-                    Toast.makeText(Register.this,"用户名重复", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this,"user name duplication", Toast.LENGTH_SHORT).show();
                 }
             }
         }
