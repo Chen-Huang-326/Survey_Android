@@ -14,25 +14,22 @@
         android:layout_height="wrap_content"
         android:background="@null"
         android:onClick="MulBack"
-        android:text="BACK"
+        android:drawableStart="@drawable/ic_arrow_back_black_24dp"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/que_mul_title"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
         android:gravity="center"
-        android:background="@color/colorPrimary"
-
         android:text="Multiple Choice"
-        android:textSize="35sp"
-
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,23 +40,10 @@
         android:layout_height="wrap_content"
         android:background="@null"
         android:onClick="MulSubmit"
-        android:text="SUBMIT"
-        android:textSize="16sp"
+        android:drawableEnd="@drawable/ic_save_black_24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/selection_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="24dp"
-        android:text="Selection type"
-        android:textColor="#040303"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/setting" />
 
     <TextView
         android:id="@+id/choice_number"
@@ -82,7 +66,7 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Enter your question"
+        android:hint="Enter your question"
         android:textColor="#ACA8A8"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,47 +93,52 @@
         android:id="@+id/mul_choice_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="1dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="1dp"
         android:text="Choice"
         android:textColor="#040303"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mul_question_content" />
 
     <Button
         android:id="@+id/mul_add"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:onClick="MulAdd"
         android:text="ADD"
-        app:layout_constraintStart_toEndOf="@+id/mul_choice_title"
-        app:layout_constraintTop_toBottomOf="@+id/mul_question_content" />
+        android:background="@drawable/main_button_drawable"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ScrollView1" />
 
     <Button
         android:id="@+id/mul_remove"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
         android:onClick="MulRemove"
         android:text="REMOVE"
-        app:layout_constraintStart_toEndOf="@+id/mul_add"
-        app:layout_constraintTop_toBottomOf="@+id/mul_question_content" />
+        android:background="@drawable/main_button_drawable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ScrollView1" />
 
     <ScrollView
+        android:id="@+id/ScrollView1"
         android:layout_width="348dp"
         android:layout_height="328dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mul_add">
+        app:layout_constraintTop_toBottomOf="@+id/mul_choice_title">
 
         <LinearLayout
             android:id="@+id/choice_view"
@@ -168,11 +157,11 @@
         android:textSize="20sp"
         android:textColor="#040303"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selection_type" />
+        app:layout_constraintTop_toBottomOf="@+id/setting" />
 
     <EditText
         android:id="@+id/limited_num"
-        android:layout_width="72dp"
+        android:layout_width="70dp"
         android:layout_height="53dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -181,7 +170,7 @@
         android:gravity="center"
         android:inputType="number"
         app:layout_constraintStart_toEndOf="@+id/title_select_limitation"
-        app:layout_constraintTop_toBottomOf="@+id/selection_type" />
+        app:layout_constraintTop_toBottomOf="@+id/setting" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
