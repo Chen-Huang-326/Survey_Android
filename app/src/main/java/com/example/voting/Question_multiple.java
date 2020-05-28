@@ -96,6 +96,7 @@ public class Question_multiple extends AppCompatActivity {
                 q += ("\n" + "(Please select 1 or " + limited + " options)");
             }
             textContents.add(q);
+            textContents.add(limited+"");
 
             int n = editTexts.size();
             for (int i = 0; i < n; i++) {

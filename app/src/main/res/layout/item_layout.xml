@@ -10,12 +10,15 @@
         android:id="@+id/cell_SurName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="20dp"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/cell_DueDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="20dp"
         android:text="TextView" />
+
 
 </LinearLayout>

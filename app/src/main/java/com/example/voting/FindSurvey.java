@@ -49,13 +49,9 @@ public class FindSurvey extends AppCompatActivity {
 
 
     // TODO: Use this method to collect the data from sever (Haven't completed)
-    private ArrayList<String> getData(){
-        ArrayList<String> data = new ArrayList<>();
-        String temp = " item";
-        for(int i = 0; i < 20; i++) {
-            data.add(i + temp);
-        }
+    private ArrayList<String[]> getData(){
+        ArrayList<String[]> survey = DBUtils.getSurveyInfo();
 
-        return data;
+        return survey;
     }
 }

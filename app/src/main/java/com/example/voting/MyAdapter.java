@@ -8,11 +8,13 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
-    private ArrayList<String> mData;
+    private ArrayList<String[]> mData;
 
     OnItemClickListener listener;
 
@@ -24,11 +26,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         this.listener = listener;
     }
 
-    public MyAdapter(ArrayList<String> data) {
+    public MyAdapter(ArrayList<String[]> data) {
         this.mData = data;
     }
 
-    public void updateData(ArrayList<String> data) {
+    public void updateData(ArrayList<String[]> data) {
         this.mData = data;
         notifyDataSetChanged();
     }
@@ -42,7 +44,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        holder.mTitle.setText(mData.get(position));
+        String [] item = mData.get(position);
+        holder.mTitle.setText(item[1]);
+        holder.mDueDate.setText(item[2]);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +63,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
         TextView mTitle;
         TextView mDueDate;
 

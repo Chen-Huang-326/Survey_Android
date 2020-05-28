@@ -8,7 +8,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -290,4 +293,180 @@ public class DBUtils {
         }
         return null;
     }
+
+    /**
+     *  Store the survey onto the server
+     * @param my_survey
+     * @param que_choice_pair
+     */
+    public static void StoreSurveyData (ArrayList<String[]> my_survey, ArrayList<ArrayList<String>> que_choice_pair){
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        Connection conn = null;
+
+        ArrayList<String> qc;
+
+
+        try {
+            conn = DBUtils.getConn();
+
+            assert conn != null;
+            for (int i = 0; i < my_survey.size(); i++){
+                String [] info = my_survey.get(i);
+                String question = info[4];
+                System.out.println(question);
+                String type = info[5];
+                String sql2 = "insert into survey(username, survey_title, due_date, question, question_type, choice_num, limited_num) values(?,?,?,?,?,?,?)";
+                PreparedStatement ps_insert2 = conn.prepareStatement(sql2);
+
+                ps_insert2.setString(1, info[0]);
+                ps_insert2.setString(2, info[1]);
+                ps_insert2.setString(3, info[2]);
+                ps_insert2.setString(4, info[3]);
+                ps_insert2.setString(5, info[4]);
+                ps_insert2.setString(6, info[5]);
+                ps_insert2.setString(7, info[6]);
+                ps_insert2.executeUpdate();
+
+                String sql_create = "create table " + question +"(que_title varchar(100), choice varchar(100));";
+                String sql1 = "insert into " + question + "(que_title, choice) values(?,?)";
+
+                // Insert data into the choice tables
+                if (type.equals("multiple")) {
+                    // Create choice tables, each multiple choice table consist of question and choices
+                    PreparedStatement ps_create = conn.prepareStatement(sql_create);
+                    ps_create.executeUpdate();
+
+                    qc = que_choice_pair.get(i);
+                    String q = qc.get(0);
+                    for (int a = 1; a < qc.size(); a++) {
+                        String c = qc.get(i);
+                        PreparedStatement ps_insert1 = conn.prepareStatement(sql1);
+                        ps_insert1.setString(1,q);
+                        ps_insert1.setString(2,c);
+                        ps_insert1.executeUpdate();
+                    }
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Retrieve the active survey from the server
+     * Active survey means the due date is not expired
+     * @return
+     */
+    public static ArrayList<String[]> getSurveyInfo (){
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        Connection conn = null;
+
+        ArrayList<String[]> basic_info = new ArrayList<>();
+        try {
+            conn = DBUtils.getConn();
+
+            String sql = "select username, survey_title, due_date from survey";
+            assert conn != null;
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            String[] info = new String[3];
+            while(rs.next()){
+                info[0] = rs.getString(1);
+                info[1] = rs.getString(2);
+                info[2] = rs.getString(3);
+              /*  info[3] = rs.getString(4);
+                info[4] = rs.getString(5);
+                info[5] = rs.getString(6);
+                info[6] = rs.getString(7);*/
+                if (DateValid(info[2])) basic_info.add(info); //if the due date is not expired, add it
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return basic_info;
+    }
+
+    public static ArrayList<String[]> getQueryInfo(String username, String title){
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        Connection conn = null;
+
+        ArrayList<String[]> query = new ArrayList<>();
+
+        try {
+            conn = DBUtils.getConn();
+
+            String sql = "select question,question_type, choice_num, limited_num from survey where survey_title = ?";
+            assert conn != null;
+            PreparedStatement ps = conn.prepareStatement(sql);
+            //ps.setString(1,username);
+            ps.setString(1,title);
+            ResultSet rs = ps.executeQuery();
+            String info [] = new String[4];
+            while(rs.next()){
+                info[0] = rs.getString(1);
+                info[1] = rs.getString(2);
+                info[2] = rs.getString(3);
+                info[3] = rs.getString(4);
+                System.out.println(info[0]);
+                query.add(info);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return query;
+
+    }
+
+    public static ArrayList<String> getChoicesInfo (String question){
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        Connection conn = null;
+
+        ArrayList<String> choices = new ArrayList<>();
+
+        try {
+            conn = DBUtils.getConn();
+
+            String sql = "select choice from "+question;
+            assert conn != null;
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            String info = "";
+            while(rs.next()){
+                info = rs.getString(1);
+                choices.add(info);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return choices;
+    }
+
+    /**
+     * Check whether the date is set after the current date
+     * @param date
+     * @return boolean
+     */
+    public static boolean DateValid (String date) {
+        SimpleDateFormat simpleFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date current = new Date(System.currentTimeMillis());
+        Date set = null;
+        try {
+            set = simpleFormat.parse(date);
+            return set.after(current);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }

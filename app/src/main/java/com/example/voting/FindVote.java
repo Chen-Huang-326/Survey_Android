@@ -28,7 +28,7 @@ public class FindVote extends AppCompatActivity {
 
     private void initData (){
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        my_adapter = new MyAdapter(DBUtils.getTitleInfo());
+        my_adapter = new MyAdapter(getData());
         my_adapter.setOnItemClick(new MyAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(View v, int position, String id) {
@@ -50,6 +50,19 @@ public class FindVote extends AppCompatActivity {
     }
 
 
+    private ArrayList<String[]> getData(){
+        ArrayList<String> titles = DBUtils.getTitleInfo();
+        ArrayList<String[]> voteInfo = new ArrayList<>();
+        String [] basic_info = new String[2];
+        for (String title :titles){
+            String due = DBUtils.getDueInfo(title);
+            basic_info[0] = title;
+            basic_info[1] = due;
+            voteInfo.add(basic_info);
+        }
+
+        return voteInfo;
+    }
 
 }
 

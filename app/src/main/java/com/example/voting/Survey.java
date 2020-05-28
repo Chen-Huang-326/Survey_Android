@@ -26,14 +26,17 @@ import java.util.Date;
 
 public class Survey extends AppCompatActivity {
 
-    private ArrayList<TextView> description_list = new ArrayList<>(); // Storing description content
-    private ArrayList<TextView> multiple_list = new ArrayList<>(); // Storing multiple question
-    private ArrayList<TextView> text_list = new ArrayList<>(); // Storing text question
+    private ArrayList<TextView> description_list = new ArrayList<>(); // Storing description view
+    private ArrayList<TextView> multiple_list = new ArrayList<>(); // Storing multiple view
+    private ArrayList<TextView> text_list = new ArrayList<>(); // Storing text question view
     private ArrayList<ArrayList<TextView>> choice_list = new ArrayList<>(); // Storing multiple choice corresponding to particular question
     private int index = 0;
     private ArrayList<Button> des_removeButtons = new ArrayList<>(); // Storing "remove" button for description
     private ArrayList<Button> mul_removeButtons = new ArrayList<>(); // Storing "remove" button for multiple question
     private ArrayList<Button> text_removeButtons = new ArrayList<>(); // Storing "remove" button for multiple question
+    private String [] basic_info = new String[3];
+    private ArrayList<String []> question_list = new ArrayList<>(); // Storing information: question, question type, choice number and selected limitation
+    private ArrayList<ArrayList<String>> que_choice_pair = new ArrayList<>(); // Stroing information: question with corresponding choices
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,16 +116,27 @@ public class Survey extends AppCompatActivity {
             if (requestCode == 1){
                 TextView title = (TextView)findViewById(R.id.survey_title_editer);
                 title.setText(data.getStringExtra("input"));
+                basic_info[1] = data.getStringExtra("input"); // add survey title in to the basic information list
             }
             // To demonstrate the "description"
             if (requestCode == 2){
                 index++;
                 // Create a textView to show the content of question
                 TextView query = new TextView(this);
-                query.setText(data.getStringExtra("description"));
+                String question = data.getStringExtra("description");
+                query.setText(question);
                 query.setTextSize(16);
                 query.setId(index);
                 description_list.add(query);
+
+                // Store the information: question, type, choice_num and selected_limitation
+                String [] info = new String[4];
+                info [0] = question;
+                info [1] = "description";
+                info [2] = "0";
+                info [3] = "0";
+
+                question_list.add(info);
 
                 // Create a button to add the button to remove the question
                 Button remove = new Button(this);
@@ -150,7 +164,8 @@ public class Survey extends AppCompatActivity {
                 ArrayList<String> multiple = data.getStringArrayListExtra("multiple_choice");
                 //Copy the question
                 TextView query = new TextView(this);
-                query.setText(multiple.get(0));
+                String question = multiple.get(0);
+                query.setText(question);
                 query.setTextSize(16);
                 query.setId(index);
                 multiple_list.add(query);
@@ -158,7 +173,7 @@ public class Survey extends AppCompatActivity {
 
                 int length = multiple.size();
                 ArrayList<TextView> choices = new ArrayList<>();
-                for (int i = 1; i < length; i++){
+                for (int i = 2; i < length; i++){
                     TextView choice = new TextView(this);
                     choice.setText(i + ". " + multiple.get(i));
                     choice.setTextSize(16);
@@ -168,6 +183,20 @@ public class Survey extends AppCompatActivity {
                 }
                 choice_list.add(choices);
 
+                // Store the information: question, type, choice_num and selected_limitation
+                String [] info = new String[4];
+                info [0] = question;
+                info [1] = "multiple";
+                info [2] = (multiple.size() - 2) + "";
+                info [3] = multiple.get(1);
+
+                question_list.add(info);
+
+                // Store the information: question and corresponding choices
+                multiple.remove(1);
+                que_choice_pair.add(multiple);
+
+                // Set remove button
                 Button remove = new Button(this);
                 remove.setId(index);
                 remove.setText("Remove");
@@ -186,16 +215,24 @@ public class Survey extends AppCompatActivity {
                 });
             }
             // To demonstrate the "open question"
-            // TODO: task 6.4 Open question (TBD)
             if (requestCode == 4){
                 index++;
                 // Create a textView to show the content of question
                 TextView query = new TextView(this);
-                query.setText(data.getStringExtra("text_question") + "\n" +"(Open-end question)");
+                String question = data.getStringExtra("text_question") + "\n" +"(Open-end question)";
+                query.setText(question);
                 query.setTextSize(16);
                 query.setId(index);
                 text_list.add(query);
 
+                // Store the information: question, type, choice_num and selected_limitation
+                String [] info = new String[4];
+                info [0] = question;
+                info [1] = "text";
+                info [2] = "0";
+                info [3] = "0";
+
+                question_list.add(info);
 
                 // Create a button to add the button to remove the question
                 Button remove = new Button(this);
@@ -288,8 +325,20 @@ public class Survey extends AppCompatActivity {
 
                     if (dateFormatValid) {
                         if (checkDateValid(date)) {
+                            basic_info[0] = MainActivity.myUsername;// add user name into the basic information list
+                            basic_info[2] = date; // add due date into the basic information list
+
+                            // Create the information about the whole survey without choices
+                            ArrayList<String[]> my_survey = createInfo();
+
+                            // evoke the method to transform the survey data to server
+                            DBUtils.StoreSurveyData (my_survey, que_choice_pair);
+
                             Toast.makeText(Survey.this, "Submit success!", Toast.LENGTH_SHORT).show();
-                            dialog.cancel(); // TODO: require to next activity
+                            dialog.cancel();
+                            Intent intent = new Intent();
+                            setResult(RESULT_OK,intent);
+                            finish();
                         } else Toast.makeText(Survey.this,"Date must be set after today", Toast.LENGTH_SHORT).show();
                     }
                     if (!dateFormatValid) {
@@ -362,6 +411,30 @@ public class Survey extends AppCompatActivity {
             e.printStackTrace();
             return false;
         }
+    }
+
+    /**
+     * Combine the information: user name, survey title, due date, question, question type, choice number and selected limitation into one list;
+     * @return
+     */
+    public ArrayList<String[]> createInfo (){
+        ArrayList<String[]> surveys = new ArrayList<>();
+
+        for (int i = 0; i < question_list.size(); i++){
+            String [] survey = new String[7];
+            String[] list = question_list.get(i);
+            survey[0] = basic_info[0];
+            survey[1] = basic_info[1];
+            survey[2] = basic_info[2];
+            survey[3] = list[0];
+            survey[4] = list[1];
+            survey[5] = list[2];
+            survey[6] = list[3];
+            surveys.add(survey);
+        }
+
+
+        return surveys;
     }
 
 }
