@@ -63,7 +63,6 @@ public class SurveyTest {
 
         // Check the due date after established date is valid;
         assertTrue("The date is invalid", survey.checkDateValid(futureDate));
-
-
+        
     }
 }
