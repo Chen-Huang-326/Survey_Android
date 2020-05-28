@@ -1,21 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_layout"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/survey_button_drawable">
+
 
     <TextView
         android:id="@+id/cell_SurName"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:paddingHorizontal="@dimen/activity_horizontal_margin"
+        android:drawableStart="@drawable/ic_color_lens_black_24dp"
+        android:drawableTint="#4d4d4d"
+        android:gravity="center"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/cell_DueDate"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_marginTop="10dp"
+        android:textSize="15dp"
+        android:text="TextView"
+        android:layout_gravity="end"
+        android:gravity="center"
+        android:drawablePadding="5dp"
+        android:drawableEnd="@drawable/ic_alarm_black_24dp"
+        android:paddingHorizontal="@dimen/activity_horizontal_margin"/>
 
 </LinearLayout>
