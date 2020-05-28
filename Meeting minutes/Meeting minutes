@@ -1,4 +1,4 @@
-# W1 No.1 meeting (Edit by Chen Huang)
+# No.1 meeting (Edit by Chen Huang)
 
 # Meeting date: 24/04/2020
 # Meeting time: 3:00pm - 4:00p
@@ -18,7 +18,7 @@
 # Next meeting topic: Discuss the basic layout and class
 
 
-# W1 No.2 meeting (Edit by Chen Huang)
+# No.2 meeting (Edit by Chen Huang)
 
 # Meeting date: 25/04/2020
 # Meeting time: 4:00pm - 4:30pm
@@ -36,3 +36,25 @@
 # Conclusion: creat 2 versions of scratch layout
 
 # Next meeting topic: tweak the layouts and discuss about the main classes.
+
+
+# No.3 meeting (Edit by Chen Huang)
+
+# Meeting date: 05/05/2020
+# Meeting time: 4:00pm - 4:30pm
+# Meeting type: Zoom
+# Meeting topic: * Discuss the task allocation
+# Attendance: Chen Huang
+              Mingda Zheng
+              Zijun Zhang
+
+# Discussion: Discuss the task allocation in following weeks based on the basic layout of the app.
+#             1. Divide the function of creating to "vote" and "survey"
+#             2. Divide the home page to two pages "FindVote" and "FindSurvey"
+#             3. Allocate the tasks of 5 basic features and 1 advanced feature
+#
+# Conclusion: 1. vote and interface design ---- Zijun Zhang
+#             2. survey and basic function of the app ---- Chen Huang
+#             3. login, register, server and data transformation ---- Mingda Zheng
+
+# Next meeting topic: Assemble the code about the basic function and test validation.
