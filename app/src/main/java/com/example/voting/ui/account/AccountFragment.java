@@ -6,7 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,5 +55,97 @@ public class AccountFragment extends Fragment {
             }
         });
 
+
+
+        CheckBox female = getActivity().findViewById(R.id.female_checkBox);
+        CheckBox male = getActivity().findViewById(R.id.male_checkBox);
+        CheckBox transgender = getActivity().findViewById(R.id.transgender_checkBox);
+
+        female.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!MainActivity.myUsername.equals("")){
+                    CheckBox male = getActivity().findViewById(R.id.male_checkBox);
+                    CheckBox transgender = getActivity().findViewById(R.id.transgender_checkBox);
+                    male.setChecked(false);
+                    transgender.setChecked(false);
+                } else {
+                    CheckBox female = getActivity().findViewById(R.id.female_checkBox);
+                    female.setChecked(false);
+                    Toast.makeText(getActivity(),"Please register first!", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
+        male.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!MainActivity.myUsername.equals("")){
+                    CheckBox female = getActivity().findViewById(R.id.female_checkBox);
+                    CheckBox transgender = getActivity().findViewById(R.id.transgender_checkBox);
+                    female.setChecked(false);
+                    transgender.setChecked(false);
+                } else {
+                    CheckBox male = getActivity().findViewById(R.id.male_checkBox);
+                    male.setChecked(false);
+                    Toast.makeText(getActivity(),"Please register first!", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+        transgender.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!MainActivity.myUsername.equals("")){
+                    CheckBox female = getActivity().findViewById(R.id.female_checkBox);
+                    CheckBox male = getActivity().findViewById(R.id.male_checkBox);
+                    male.setChecked(false);
+                    female.setChecked(false);
+                } else {
+                    CheckBox transgender = getActivity().findViewById(R.id.transgender_checkBox);
+                    transgender.setChecked(false);
+                    Toast.makeText(getActivity(),"Please register first!", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
+        final ImageView save_email = getActivity().findViewById(R.id.edit_e_mail);
+
+        save_email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText input_email = getActivity().findViewById(R.id.input_email);
+                TextView saved_email = getActivity().findViewById(R.id.saved_email);
+                if (!MainActivity.myUsername.equals("")){
+                    if (saved_email.getVisibility()==View.INVISIBLE){
+                        saved_email.setText(input_email.getText());
+                        input_email.setVisibility(View.INVISIBLE);
+                        saved_email.setVisibility(View.VISIBLE);}
+                    if (input_email.getVisibility()==View.INVISIBLE){
+                        input_email.setText(saved_email.getText());
+                        input_email.setVisibility(View.VISIBLE);
+                        saved_email.setVisibility(View.INVISIBLE);}
+                } else {
+                    Toast.makeText(getActivity(),"Please register first!", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+        
+        ImageButton change_photo = getActivity().findViewById(R.id.changePhoto);
+
+        change_photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!MainActivity.myUsername.equals("")){
+                    Toast.makeText(getActivity(),"Coming soon :)", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity(),"Please register first!", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
     }
 }
