@@ -187,7 +187,6 @@ public class DBUtils {
         String dueDate = "";
         try {
             conn = DBUtils.getConn();
-
             String sql = "select due from voting where title=?";
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement(sql);
