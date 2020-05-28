@@ -11,8 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
+    public String myAge;
+    public String myEmail;
+    public String myGender;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +44,10 @@ public class MainActivity extends AppCompatActivity {
             boolean judge = DBUtils.loginJudge(name,pass);
             if(judge){
                 Intent intent = new Intent(this, MainPage.class);
-                intent.putExtra("username",name);
+                ArrayList info = DBUtils.getInformation(name);
+                myAge = (String) info.get(0);
+                myEmail = (String) info.get(1);
+                myGender = (String)info.get(2);
                 startActivity(intent);
             }else{
                 Toast.makeText(MainActivity.this,"failed", Toast.LENGTH_LONG).show();

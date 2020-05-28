@@ -86,7 +86,7 @@ public class DBUtils {
     }
 
 
-    public static List getInformation(String username){
+    public static ArrayList getInformation(String username){
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         Connection conn = null;
@@ -94,18 +94,16 @@ public class DBUtils {
         try {
             conn = DBUtils.getConn();
 
-            String sql = "select username,age,email,gender from information where username =?";
+            String sql = "select age,email,gender from information where username =?";
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1,username);
 
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-              String name = rs.getString(1);
-              int age = rs.getInt(2);
-              String email = rs.getString(3);
-              String gender = rs.getString(4);
-              userinfo.add(name);
+              int age = rs.getInt(1);
+              String email = rs.getString(2);
+              String gender = rs.getString(3);
               userinfo.add(Integer.toString(age));
               userinfo.add(email);
               userinfo.add(gender);
@@ -115,5 +113,44 @@ public class DBUtils {
             e.printStackTrace();
         }
         return userinfo;
+    }
+
+    public static boolean submitVote(ArrayList<String> list){
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        Connection conn = null;
+        String sql = "";
+        try {
+            conn = DBUtils.getConn();
+
+            switch (list.size()){
+                case 3:
+                    sql = "insert into voting(title,c_1,c_2) values(?,?,?)";
+                    break;
+                case 4:
+                    sql = "insert into voting(title,c_1,c_2,c_3) values(?,?,?,?)";
+                    break;
+                case 5:
+                    sql = "insert into voting(title,c_1,c_2,c_3,c_4) values(?,?,?,?,?)";
+                    break;
+                case 6:
+                    sql = "insert into voting(title,c_1,c_2,c_3,c_4,c_5) values(?,?,?,?,?,?)";
+                    break;
+                default:
+                    break;
+            }
+            assert conn != null;
+            PreparedStatement ps = conn.prepareStatement(sql);
+            for (int i = 0; i < list.size(); i++) {
+                String info = list.get(i);
+                ps.setString(i+1,info);
+            }
+            ps.executeUpdate();
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

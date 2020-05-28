@@ -1,9 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pollVote">
+    android:padding="0dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Vote">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/voting_background_in_find"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#FB5655"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/Vote_in_find"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginRight="1dp"
+            android:text="@string/app_name"
+            android:textSize="25dp"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/vote_back_in_find"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#FB5655"
+            android:tint="#FFFFFF"
+            android:onClick="backInFind"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+
+
+        <TextView
+            android:id="@+id/voting_title_in_find"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="30dp"
+            android:textSize="20dp"
+            android:textColor="#000000"
+            android:textStyle="italic"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Vote_in_find" />
+        <TextView
+            android:id="@+id/due_date_title_in_find"
+            app:layout_constraintEnd_toStartOf="@id/deadline"
+            app:layout_constraintTop_toBottomOf="@id/voting_title_in_find"
+            android:layout_marginTop="13dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:textSize="15dp"
+            android:text="Deadline: "
+            android:layout_height="20dp"/>
+
+
+        <TextView
+            android:id="@+id/deadline"
+            app:layout_constraintTop_toBottomOf="@id/voting_title_in_find"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="13dp"
+            android:layout_marginRight="40dp"
+            android:layout_width="wrap_content"
+            android:text=""
+            android:textSize="15dp"
+            android:layout_height="20dp"/>
+
+        <TextView
+            android:id="@+id/option_one_in_find"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/survey_button_drawable"
+            android:gravity="center"
+            android:text=""
+            android:textColor="#4D4D4D"
+            android:textSize="20dp"
+            android:onClick="clickOption1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/deadline" />
+
+        <TextView
+            android:id="@+id/option_two_in_find"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/survey_button_drawable"
+            android:gravity="center"
+            android:text=""
+            android:textColor="#4D4D4D"
+            android:textSize="20dp"
+            android:onClick="clickOption2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/option_one_in_find" />
+
+        <TextView
+            android:id="@+id/option_three_in_find"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/survey_button_drawable"
+            android:gravity="center"
+            android:text=""
+            android:textColor="#4D4D4D"
+            android:textSize="20dp"
+            android:visibility="invisible"
+            android:onClick="clickOption3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/option_two_in_find" />
+
+        <TextView
+            android:id="@+id/option_four_in_find"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/survey_button_drawable"
+            android:gravity="center"
+            android:text=""
+            android:textColor="#4D4D4D"
+            android:textSize="20dp"
+            android:visibility="invisible"
+            android:onClick="clickOption4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/option_three_in_find" />
+
+        <TextView
+            android:id="@+id/option_five_in_find"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/survey_button_drawable"
+            android:gravity="center"
+            android:text=""
+            android:textColor="#4D4D4D"
+            android:textSize="20dp"
+            android:onClick="clickOption5"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/option_four_in_find" />
+
+
+        <Button
+            android:id="@+id/voting_result_submit_in_find"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/submit_button"
+            android:drawableStart="@drawable/ic_sentiment_very_satisfied_black_24dp"
+            android:drawableTint="#FFFFFF"
+            android:paddingHorizontal="@dimen/activity_horizontal_margin"
+            android:text="  Confirm and vote"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/option_five_in_find" />
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

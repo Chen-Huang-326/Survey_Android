@@ -364,6 +364,7 @@
         android:background="@drawable/submit_button"
         android:drawableStart="@drawable/ic_cloud_upload_black_24dp"
         android:drawableTint="#FFFFFF"
+        android:onClick="create_vote_submit"
         android:paddingHorizontal="@dimen/activity_horizontal_margin"
         android:text=" Submit"
         android:textColor="#FFFFFF"

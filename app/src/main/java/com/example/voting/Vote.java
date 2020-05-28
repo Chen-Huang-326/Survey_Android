@@ -13,6 +13,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class Vote extends AppCompatActivity {
 
@@ -274,6 +277,38 @@ public class Vote extends AppCompatActivity {
         save_button.setVisibility(View.VISIBLE);
         re_edit_button.setVisibility(View.INVISIBLE);
         submit_button.setVisibility(View.INVISIBLE);
+
+    }
+
+    public void create_vote_submit(View view){
+        ArrayList<String> info = new ArrayList<>();
+        TextView savedTitle = findViewById(R.id.saved_title);
+        TextView savedOptionOne = findViewById(R.id.saved_option_one);
+        TextView savedOptionTwo = findViewById(R.id.saved_option_two);
+        info.add(savedTitle.getText().toString());
+        info.add(savedOptionOne.getText().toString());
+        info.add(savedOptionTwo.getText().toString());
+        if(findViewById(R.id.saved_option_three).getVisibility() == View.VISIBLE){
+            TextView savedOptionThree = findViewById(R.id.saved_option_three);
+            info.add(savedOptionThree.getText().toString());
+        }
+        if(findViewById(R.id.saved_option_four).getVisibility() == View.VISIBLE){
+            TextView savedOptionFour = findViewById(R.id.saved_option_four);
+            info.add(savedOptionFour.getText().toString());
+        }
+        if(findViewById(R.id.saved_option_five).getVisibility() == View.VISIBLE){
+            TextView savedOptionFive = findViewById(R.id.saved_option_five);
+            info.add(savedOptionFive.getText().toString());
+        }
+        boolean flag = DBUtils.submitVote(info);
+        if(flag){
+            Toast.makeText(Vote.this,"success", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Vote.this, MainPage.class);
+            startActivity(intent);
+        }else{
+            Toast.makeText(Vote.this,"failed", Toast.LENGTH_SHORT).show();
+        }
+
 
     }
 }
