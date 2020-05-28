@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 myGender = (String)info.get(2);
                 startActivity(intent);
             }else{
+                myUsername="";
                 Toast.makeText(MainActivity.this,"wrong password or username", Toast.LENGTH_LONG).show();
             }
         }
@@ -59,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void visitorActivityButton(View view){
-        Intent intent = new Intent(this, Visitor.class);
+        Intent intent = new Intent(this, MainPage.class);
         startActivity(intent);
+        myUsername="";
     }
 }
