@@ -1,6 +1,7 @@
 package com.example.voting;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -126,6 +127,15 @@ public class PollVote extends AppCompatActivity {
         flag4=false;
         flag5=false;
         TextView option1 = findViewById(R.id.option_one_in_find);
+        TextView option2 = findViewById(R.id.option_two_in_find);
+        TextView option3 = findViewById(R.id.option_three_in_find);
+        TextView option4 = findViewById(R.id.option_four_in_find);
+        TextView option5 = findViewById(R.id.option_five_in_find);
+        option1.setBackground(ContextCompat.getDrawable(this,R.drawable.main_button_drawable));
+        option2.setBackground(ContextCompat.getDrawable(this,R.drawable.survey_button_drawable));
+        option3.setBackground(ContextCompat.getDrawable(this,R.drawable.survey_button_drawable));
+        option4.setBackground(ContextCompat.getDrawable(this,R.drawable.survey_button_drawable));
+        option5.setBackground(ContextCompat.getDrawable(this,R.drawable.survey_button_drawable));
         Toast.makeText(this,"You choose "+option1.getText().toString()+"!", Toast.LENGTH_SHORT).show();
     }
     public void clickOption2(View v){
@@ -134,7 +144,16 @@ public class PollVote extends AppCompatActivity {
         flag3=false;
         flag4=false;
         flag5=false;
+        TextView option1 = findViewById(R.id.option_one_in_find);
         TextView option2 = findViewById(R.id.option_two_in_find);
+        TextView option3 = findViewById(R.id.option_three_in_find);
+        TextView option4 = findViewById(R.id.option_four_in_find);
+        TextView option5 = findViewById(R.id.option_five_in_find);
+        option2.setBackground(ContextCompat.getDrawable(this,R.drawable.main_button_drawable));
+        option1.setBackground(ContextCompat.getDrawable(this,R.drawable.survey_button_drawable));
+        option3.setBackground(ContextCompat.getDrawable(this,R.drawable.survey_button_drawable));
+        option4.setBackground(ContextCompat.getDrawable(this,R.drawable.survey_button_drawable));
+        option5.setBackground(ContextCompat.getDrawable(this,R.drawable.survey_button_drawable));
         Toast.makeText(this,"You choose "+option2.getText().toString()+"!", Toast.LENGTH_SHORT).show();
     }
     public void clickOption3(View v){
@@ -143,7 +162,16 @@ public class PollVote extends AppCompatActivity {
         flag3=true;
         flag4=false;
         flag5=false;
+        TextView option1 = findViewById(R.id.option_one_in_find);
+        TextView option2 = findViewById(R.id.option_two_in_find);
         TextView option3 = findViewById(R.id.option_three_in_find);
+        TextView option4 = findViewById(R.id.option_four_in_find);
+        TextView option5 = findViewById(R.id.option_five_in_find);
+        option3.setBackground(ContextCompat.getDrawable(this,R.drawable.main_button_drawable));
+        option2.setBackground(ContextCompat.getDrawable(this,R.drawable.survey_button_drawable));
+        option1.setBackground(ContextCompat.getDrawable(this,R.drawable.survey_button_drawable));
+        option4.setBackground(ContextCompat.getDrawable(this,R.drawable.survey_button_drawable));
+        option5.setBackground(ContextCompat.getDrawable(this,R.drawable.survey_button_drawable));
         Toast.makeText(this,"You choose "+option3.getText().toString()+"!", Toast.LENGTH_SHORT).show();
     }
     public void clickOption4(View v){
@@ -152,7 +180,16 @@ public class PollVote extends AppCompatActivity {
         flag3=false;
         flag4=true;
         flag5=false;
+        TextView option1 = findViewById(R.id.option_one_in_find);
+        TextView option2 = findViewById(R.id.option_two_in_find);
+        TextView option3 = findViewById(R.id.option_three_in_find);
         TextView option4 = findViewById(R.id.option_four_in_find);
+        TextView option5 = findViewById(R.id.option_five_in_find);
+        option4.setBackground(ContextCompat.getDrawable(this,R.drawable.main_button_drawable));
+        option2.setBackground(ContextCompat.getDrawable(this,R.drawable.survey_button_drawable));
+        option3.setBackground(ContextCompat.getDrawable(this,R.drawable.survey_button_drawable));
+        option1.setBackground(ContextCompat.getDrawable(this,R.drawable.survey_button_drawable));
+        option5.setBackground(ContextCompat.getDrawable(this,R.drawable.survey_button_drawable));
         Toast.makeText(this,"You choose "+option4.getText().toString()+"!", Toast.LENGTH_SHORT).show();
     }
     public void clickOption5(View v){
@@ -161,7 +198,16 @@ public class PollVote extends AppCompatActivity {
         flag3=false;
         flag4=false;
         flag5=true;
+        TextView option1 = findViewById(R.id.option_one_in_find);
+        TextView option2 = findViewById(R.id.option_two_in_find);
+        TextView option3 = findViewById(R.id.option_three_in_find);
+        TextView option4 = findViewById(R.id.option_four_in_find);
         TextView option5 = findViewById(R.id.option_five_in_find);
+        option5.setBackground(ContextCompat.getDrawable(this,R.drawable.main_button_drawable));
+        option2.setBackground(ContextCompat.getDrawable(this,R.drawable.survey_button_drawable));
+        option3.setBackground(ContextCompat.getDrawable(this,R.drawable.survey_button_drawable));
+        option4.setBackground(ContextCompat.getDrawable(this,R.drawable.survey_button_drawable));
+        option1.setBackground(ContextCompat.getDrawable(this,R.drawable.survey_button_drawable));
         Toast.makeText(this,"You choose "+option5.getText().toString()+"!", Toast.LENGTH_SHORT).show();
     }
 
