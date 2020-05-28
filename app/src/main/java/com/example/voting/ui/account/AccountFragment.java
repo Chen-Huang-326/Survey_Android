@@ -34,16 +34,19 @@ public class AccountFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_account, container, false);
         return root;
     }
+    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         final TextView show_username = getActivity().findViewById(R.id.show_username);
+        final EditText show_email = getActivity().findViewById(R.id.input_email);
         btnShowUsername = getActivity().findViewById(R.id.show_username_button);
         btnShowUsername.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (MainActivity.myUsername!=""){
-                    show_username.setText(MainActivity.myUsername);}
-                else {
+                if (!MainActivity.myUsername.equals("")){
+                    show_username.setText(MainActivity.myUsername);
+                    show_email.setText(MainActivity.myEmail);
+                } else {
                     Toast.makeText(getActivity(),"Please register first!", Toast.LENGTH_SHORT).show();
                 }
             }

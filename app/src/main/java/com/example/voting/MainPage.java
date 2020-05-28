@@ -35,16 +35,6 @@ public class MainPage extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-        Intent intent = getIntent();
-        String name = intent.getStringExtra("username");
-//        EditText username = findViewById(R.id.input_email);
-//        username.setText(kkk);
-
-//        AccountFragment accountFragment = new AccountFragment();
-//        Bundle bundle = new Bundle();
-//        bundle.putString("username", name);
-//        accountFragment.setArguments(bundle);
-
     }
 
 }

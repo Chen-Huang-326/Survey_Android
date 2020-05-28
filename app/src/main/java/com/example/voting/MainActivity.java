@@ -14,10 +14,10 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
-    public String myAge;
-    public String myEmail;
-    public String myGender;
+    public static String myUsername;
+    public static String myAge;
+    public static String myEmail;
+    public static String myGender;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,18 +39,20 @@ public class MainActivity extends AppCompatActivity {
         String name = username.getText().toString();
         String pass = password.getText().toString();
         if(name == null || "".equals(name) || pass == null || "".equals(pass) ){
-            Toast.makeText(MainActivity.this,"输入不能为空", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this,"the input cannot be empty", Toast.LENGTH_SHORT).show();
         }else{
             boolean judge = DBUtils.loginJudge(name,pass);
+            myUsername="";
             if(judge){
                 Intent intent = new Intent(this, MainPage.class);
+                myUsername=name;
                 ArrayList info = DBUtils.getInformation(name);
                 myAge = (String) info.get(0);
                 myEmail = (String) info.get(1);
                 myGender = (String)info.get(2);
                 startActivity(intent);
             }else{
-                Toast.makeText(MainActivity.this,"failed", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,"wrong password or username", Toast.LENGTH_LONG).show();
             }
         }
 

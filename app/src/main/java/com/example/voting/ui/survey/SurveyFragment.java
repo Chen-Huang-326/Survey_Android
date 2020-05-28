@@ -28,6 +28,7 @@ public class SurveyFragment extends Fragment {
     private Button btnVoting;
 
 
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         surveyViewModel =

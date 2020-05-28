@@ -28,12 +28,14 @@ public class FindVote extends AppCompatActivity {
 
     private void initData (){
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        my_adapter = new MyAdapter(getData());
+        my_adapter = new MyAdapter(DBUtils.getTitleInfo());
         my_adapter.setOnItemClick(new MyAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(View v, int position, String id) {
-                Intent intent = new Intent(FindVote.this, pollVote.class);
+                ArrayList<String> titleInfo = DBUtils.getTitleInfo();
+                Intent intent = new Intent(FindVote.this, PollVote.class);
                 intent.putExtra("vote id",id);
+                intent.putExtra("titleInfo", titleInfo);
                 startActivity(intent);
             }
         });
@@ -48,15 +50,6 @@ public class FindVote extends AppCompatActivity {
     }
 
 
-    // TODO: Use this method to collect the data from sever for vote (Haven't completed)
-    private ArrayList<String> getData(){
-        ArrayList<String> data = new ArrayList<>();
-        String temp = " item";
-        for(int i = 0; i < 20; i++) {
-            data.add(i + temp);
-        }
 
-        return data;
-    }
 }
 

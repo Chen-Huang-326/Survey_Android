@@ -285,9 +285,12 @@ public class Vote extends AppCompatActivity {
         TextView savedTitle = findViewById(R.id.saved_title);
         TextView savedOptionOne = findViewById(R.id.saved_option_one);
         TextView savedOptionTwo = findViewById(R.id.saved_option_two);
+        TextView savedDueDate = findViewById(R.id.vote_due_date_edit);
+
         info.add(savedTitle.getText().toString());
         info.add(savedOptionOne.getText().toString());
         info.add(savedOptionTwo.getText().toString());
+
         if(findViewById(R.id.saved_option_three).getVisibility() == View.VISIBLE){
             TextView savedOptionThree = findViewById(R.id.saved_option_three);
             info.add(savedOptionThree.getText().toString());
@@ -300,6 +303,7 @@ public class Vote extends AppCompatActivity {
             TextView savedOptionFive = findViewById(R.id.saved_option_five);
             info.add(savedOptionFive.getText().toString());
         }
+        info.add(savedDueDate.getText().toString());
         boolean flag = DBUtils.submitVote(info);
         if(flag){
             Toast.makeText(Vote.this,"success", Toast.LENGTH_SHORT).show();
