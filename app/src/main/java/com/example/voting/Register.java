@@ -32,7 +32,7 @@ public class Register extends AppCompatActivity {
                 boolean judge = DBUtils.register(name,pass);
                 if(judge){
                     Toast.makeText(Register.this,"注册成功", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this, Login.class);
+                    Intent intent = new Intent(this, MainActivity.class);
                     startActivity(intent);
                 }else{
                     Toast.makeText(Register.this,"用户名重复", Toast.LENGTH_SHORT).show();

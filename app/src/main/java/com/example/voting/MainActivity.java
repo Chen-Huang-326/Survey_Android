@@ -9,10 +9,11 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+    public static String myUsername;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,14 +35,17 @@ public class MainActivity extends AppCompatActivity {
         String name = username.getText().toString();
         String pass = password.getText().toString();
         if(name == null || "".equals(name) || pass == null || "".equals(pass) ){
+            myUsername="";
             Toast.makeText(MainActivity.this,"输入不能为空", Toast.LENGTH_SHORT).show();
         }else{
             boolean judge = DBUtils.loginJudge(name,pass);
             if(judge){
                 Intent intent = new Intent(this, MainPage.class);
-                intent.putExtra("username",name);
+                //intent.putExtra("username",name);
+                myUsername=name;
                 startActivity(intent);
             }else{
+                myUsername="";
                 Toast.makeText(MainActivity.this,"failed", Toast.LENGTH_LONG).show();
             }
         }
@@ -49,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void visitorActivityButton(View view){
-        Intent intent = new Intent(this, Visitor.class);
+        Intent intent = new Intent(this, MainPage.class);
         startActivity(intent);
+        myUsername="";
     }
 }
