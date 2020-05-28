@@ -60,6 +60,7 @@ public class PollVote extends AppCompatActivity {
             Date date= formatter.parse(dDate);
             if(curDate.getTime()>date.getTime()){
                 showResult();
+                Toast.makeText(PollVote.this,"overdue",Toast.LENGTH_SHORT).show();
             }else{
                 ArrayList<String> choice = DBUtils.getChoice(title);
                 ArrayList<String> choiceAmount = new ArrayList<>();
