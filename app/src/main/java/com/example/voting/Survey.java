@@ -19,7 +19,10 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Survey extends AppCompatActivity {
 
@@ -281,41 +284,15 @@ public class Survey extends AppCompatActivity {
                     Toast.makeText(Survey.this, "Haven't set the due date", Toast.LENGTH_SHORT).show();
                 } else {
                     // Check the date format is corrected or not
-                    boolean dateValid = false;
+                    boolean dateFormatValid = checkDateFormat(date);
 
-                    if (date.length() == 10 && date.charAt(2) == 47 && date.charAt(5) == 47) {
-                        int day = Integer.parseInt(date.substring(0, 2));
-                        int month = Integer.parseInt(date.substring(3, 5));
-                        int year = Integer.parseInt(date.substring(6));
-                        if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
-                            if (day > 0 && day <= 31) {
-                                dateValid = true;
-                            }
-                        }
-                        if (month == 4 || month == 6 || month == 9 || month == 11) {
-                            if (day > 0 && day <= 30) {
-                                dateValid = true;
-                            }
-                        }
-                        if (month == 2) {
-                            if (year % 4 == 0) {
-                                if (day > 0 && day <= 29) {
-                                    dateValid = true;
-                                }
-                            }
-                            if (year % 4 > 0) {
-                                if (day > 0 && day <= 28) {
-                                    dateValid = true;
-                                }
-                            }
-                        }
-                    } else dateValid = false;
-
-                    if (dateValid) {
-                        Toast.makeText(Survey.this, "Submit success!", Toast.LENGTH_SHORT).show();
-                        dialog.cancel(); // TODO: require to next activity
+                    if (dateFormatValid) {
+                        if (checkDateValid(date)) {
+                            Toast.makeText(Survey.this, "Submit success!", Toast.LENGTH_SHORT).show();
+                            dialog.cancel(); // TODO: require to next activity
+                        } else Toast.makeText(Survey.this,"Date must be set after today", Toast.LENGTH_SHORT).show();
                     }
-                    if (!dateValid) {
+                    if (!dateFormatValid) {
                         Toast.makeText(Survey.this, "Date is illegal", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -329,6 +306,62 @@ public class Survey extends AppCompatActivity {
         });
         sub_builder.show();
 
+    }
+
+    /**
+     * Check whether the string has corrected date format (dd/mm/yyyy)
+     * @param date
+     * @return boolean
+     */
+    public boolean checkDateFormat (String date){
+        boolean dateValid = false;
+
+        if (date.length() == 10 && date.charAt(2) == 47 && date.charAt(5) == 47) {
+            int day = Integer.parseInt(date.substring(0, 2));
+            int month = Integer.parseInt(date.substring(3, 5));
+            int year = Integer.parseInt(date.substring(6));
+            if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+                if (day > 0 && day <= 31) {
+                    dateValid = true;
+                }
+            }
+            if (month == 4 || month == 6 || month == 9 || month == 11) {
+                if (day > 0 && day <= 30) {
+                    dateValid = true;
+                }
+            }
+            if (month == 2) {
+                if (year % 4 == 0) {
+                    if (day > 0 && day <= 29) {
+                        dateValid = true;
+                    }
+                }
+                if (year % 4 > 0) {
+                    if (day > 0 && day <= 28) {
+                        dateValid = true;
+                    }
+                }
+            }
+        } else dateValid = false;
+        return dateValid;
+    }
+
+    /**
+     * Check whether the date is set after the current date
+     * @param date
+     * @return boolean
+     */
+    public boolean checkDateValid (String date) {
+        SimpleDateFormat simpleFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date current = new Date(System.currentTimeMillis());
+        Date set = null;
+        try {
+            set = simpleFormat.parse(date);
+            return set.after(current);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
 }
