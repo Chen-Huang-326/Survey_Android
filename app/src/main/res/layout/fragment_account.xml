@@ -82,8 +82,21 @@
         android:textSize="15dp"
         android:textColor="#000000"
         android:inputType="textEmailAddress"
+        android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/account_email"
         app:layout_constraintTop_toBottomOf="@+id/account_gender" />
+    <TextView
+        android:id="@+id/saved_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:textSize="15dp"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/account_email"
+        app:layout_constraintBottom_toBottomOf="@+id/account_email" />
+
 
 
     <CheckBox
@@ -126,7 +139,16 @@
         app:layout_constraintBottom_toTopOf="@+id/transgender_checkBox"
         app:layout_constraintEnd_toEndOf="parent" />
 
-
+    <ImageButton
+        android:id="@+id/edit_e_mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginBottom="7dp"
+        app:layout_constraintStart_toEndOf="@id/input_email"
+        app:layout_constraintBottom_toBottomOf="@id/input_email"
+        android:background="#FFFFFF"
+        android:src="@drawable/ic_edit_black_24dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

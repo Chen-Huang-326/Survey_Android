@@ -183,6 +183,29 @@ public class DBUtils {
         return title;
     }
 
+    public static ArrayList<String[]> getTitleDueInfo(){
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        Connection conn = null;
+
+        ArrayList<String[]> titleDue = new ArrayList<>();
+        try {
+            conn = DBUtils.getConn();
+
+            String sql = "select title,due from voting";
+            assert conn != null;
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                titleDue.add(new String[]{rs.getString(1),rs.getString(2)});
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return titleDue;
+    }
+
     public static String getDueInfo(String title){
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -190,7 +213,6 @@ public class DBUtils {
         String dueDate = "";
         try {
             conn = DBUtils.getConn();
-
             String sql = "select due from voting where title=?";
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement(sql);

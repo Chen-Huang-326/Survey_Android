@@ -8,6 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+
+import com.example.voting.ui.home.HomeFragment;
 
 import java.util.ArrayList;
 
@@ -20,14 +23,20 @@ public class FindVote extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_find_vote);
 
         initData();
         initView();
-    }
 
+    }
+    public void clickFindVoteBack(View v){
+        Intent intent = new Intent(this, MainPage.class);
+        startActivity(intent);
+    }
     private void initData (){
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        my_adapter = new MyAdapter(DBUtils.getTitleDueInfo());
         my_adapter = new MyAdapter(getData());
         my_adapter.setOnItemClick(new MyAdapter.OnItemClickListener() {
             @Override
@@ -46,7 +55,7 @@ public class FindVote extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.RV_vote_table);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(my_adapter);
-        recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+        //recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
     }
 
 

@@ -28,7 +28,7 @@ public class FindSurvey extends AppCompatActivity {
 
     private void initData (){
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        my_adapter = new MyAdapter(getData());
+//        my_adapter = new MyAdapter(getData());
         my_adapter.setOnItemClick(new MyAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(View v, int position, String id) {
