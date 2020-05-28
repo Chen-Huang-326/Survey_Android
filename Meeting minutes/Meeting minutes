@@ -58,3 +58,61 @@
 #             3. login, register, server and data transformation ---- Mingda Zheng
 
 # Next meeting topic: Assemble the code about the basic function and test validation.
+
+
+# No.4 meeting (Edit by Chen Huang)
+
+# Meeting date: 25/05/2020
+# Meeting time: 10:00pm - 10:30pm
+# Meeting type: Zoom
+# Meeting topic: * Discuss the progress
+# Attendance: Chen Huang
+              Mingda Zheng
+              Zijun Zhang
+
+# Discussion: Discuss the progress and next plan.
+#             1. Discuss server type
+#             2. Allocate tasks about generating survey template, generating vote template and creating server
+#
+# Conclusion: 1. vote ---- Zijun Zhang
+#             2. survey and recyclerView of home page ---- Chen Huang
+#             3. SQL server and data transformation ---- Mingda Zheng
+
+# Next meeting topic: Using the data from the sever to implement the function of voting
+
+# Meeting date: 27/05/2020
+# Meeting time: 10:00pm - 11:30pm
+# Meeting type: Zoom
+# Meeting topic: * Discuss the progress
+# Attendance: Chen Huang
+              Mingda Zheng
+              Zijun Zhang
+
+# Discussion: Discuss the current situation, check whether the features match the requirements .
+#             1. Discuss the sql scheme
+#             2. Allocate the rest tasks to members
+#
+# Conclusion: 1. use the data from server to implement the vote function, interface improvement ---- Zijun Zhang
+#             2. survey improvement, Junit test ---- Chen Huang
+#             3. wavier the function of server, establish the data connection ---- Mingda Zheng
+
+# Next meeting topic: Check the requirements and check the items which require to improve.
+
+# Meeting date: 28/05/2020
+# Meeting time: 11:00pm - 11:30pm
+# Meeting type: Zoom
+# Meeting topic: * Discuss the parts required to improvment
+# Attendance: Chen Huang
+              Mingda Zheng
+              Zijun Zhang
+
+# Discussion: Discuss the requirements of the group task and check the items which require to improve.
+#             1. Check the requirements on the website
+#             2. Discuss the difficulties about how to implement the data transformation of survey (table scheme)
+#             3. Allocate the improvement tasks
+#
+# Conclusion: 1. improve vote and interface design ---- Zijun Zhang
+#             2. fix the problem of survey (including the data transform) ---- Chen Huang
+#             3. Junit test, setting deadline ---- Mingda Zheng
+
+# Next meeting topic: Assemble the code and check the requirements for the final submission.

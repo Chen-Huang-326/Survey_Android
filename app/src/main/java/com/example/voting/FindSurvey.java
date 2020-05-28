@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 
 import java.util.ArrayList;
 
@@ -20,6 +21,7 @@ public class FindSurvey extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_find_survey);
 
         initData();
@@ -28,7 +30,7 @@ public class FindSurvey extends AppCompatActivity {
 
     private void initData (){
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-//        my_adapter = new MyAdapter(getData());
+        my_adapter = new MyAdapter(getData());
         my_adapter.setOnItemClick(new MyAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(View v, int position, String id) {
@@ -48,10 +50,16 @@ public class FindSurvey extends AppCompatActivity {
     }
 
 
-    // TODO: Use this method to collect the data from sever (Haven't completed)
     private ArrayList<String[]> getData(){
         ArrayList<String[]> survey = DBUtils.getSurveyInfo();
+        ArrayList<String[]> surveys = new ArrayList<>();
 
-        return survey;
+        for (String[] s: survey){
+            String [] tmp = new String[2];
+            tmp[0] = s[1];
+            tmp[1] = s[2];
+        }
+
+        return surveys;
     }
 }
