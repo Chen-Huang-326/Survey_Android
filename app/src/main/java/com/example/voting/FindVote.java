@@ -28,7 +28,7 @@ public class FindVote extends AppCompatActivity {
 
     private void initData (){
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        my_adapter = new MyAdapter(DBUtils.getTitleInfo());
+        my_adapter = new MyAdapter(DBUtils.getTitleDueInfo());
         my_adapter.setOnItemClick(new MyAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(View v, int position, String id) {
