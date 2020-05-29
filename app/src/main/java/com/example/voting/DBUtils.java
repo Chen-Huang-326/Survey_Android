@@ -20,6 +20,10 @@ public class DBUtils {
 
     private static final String TAG = "DBUtils";
 
+    /**
+     * Connect to the database on the server
+     * @return return a variable of type Connection
+     */
     public static Connection getConn()  {
 
         try {
@@ -38,6 +42,12 @@ public class DBUtils {
 
     }
 
+    /**
+     * Determine if an user can log in (the correctness and consistency of the username and the password)
+     * @param username  the username
+     * @param password  the password
+     * @return a boolean variable, if it is true, the user can log in
+     */
     public static boolean loginJudge(String username, String password){
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -69,6 +79,12 @@ public class DBUtils {
         return false;
     }
 
+    /**
+     * Register a new user
+     * @param username  user's username
+     * @param password  user's password
+     * @return a boolean variable that indicates whether or not the registration is successful
+     */
     public  static boolean register(String username, String password){
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -89,7 +105,11 @@ public class DBUtils {
         return false;
     }
 
-
+    /**
+     * Get user information from the database based on the user name
+     * @param username The user name corresponding to the information to be queried
+     * @return an ArrayList containing user information
+     */
     public static ArrayList getInformation(String username){
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -119,6 +139,11 @@ public class DBUtils {
         return userinfo;
     }
 
+    /**
+     * Pass voting information to the database bases on what user created
+     * @param list an ArrayList that contains the information of a created voting
+     * @return whether the creation is successful
+     */
     public static boolean submitVote(ArrayList<String> list){
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -159,6 +184,10 @@ public class DBUtils {
     }
 
 
+    /**
+     * Get all voting topics
+     * @return an ArrayList contains all topics
+     */
     public static ArrayList<String> getTitleInfo(){
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -183,6 +212,10 @@ public class DBUtils {
         return title;
     }
 
+    /**
+     * Get voting deadlines and topics
+     * @return an ArrayList<String[]> contains voting topics and their corresponding deadlines
+     */
     public static ArrayList<String[]> getTitleDueInfo(){
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -206,6 +239,11 @@ public class DBUtils {
         return titleDue;
     }
 
+    /**
+     * Get the deadline by the title of a voting
+     * @param title a voting title
+     * @return a string of a deadline date
+     */
     public static String getDueInfo(String title){
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -229,6 +267,11 @@ public class DBUtils {
         return dueDate;
     }
 
+    /**
+     * Get the options of a voting
+     * @param title a voting title used to get the option
+     * @return an ArrayList<String> contains all options of a voting
+     */
     public static ArrayList<String> getChoice(String title){
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -257,6 +300,12 @@ public class DBUtils {
         return choice;
     }
 
+    /**
+     * Update the data in the database based on the poll results.
+     * @param title the voting title
+     * @param id option that needs to be updated
+     * @return whether the update is successful
+     */
     public static boolean count(String title, String id){
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -276,6 +325,11 @@ public class DBUtils {
         return false;
     }
 
+    /**
+     * Get the result of voting according to the title
+     * @param title the voting title
+     * @return an ArrayList<String[]> contains all options and their corresponding results
+     */
     public static ArrayList<String[]> countResult(String title){
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -414,6 +468,12 @@ public class DBUtils {
         return basic_info;
     }
 
+    /**
+     * Get the corresponding questions information according to the title and the created user of a survey
+     * @param username the username of the created person
+     * @param title the title of a survey
+     * @return an ArrayList<String[]> of all questions information
+     */
     public static ArrayList<String[]> getQueryInfo(String username, String title){
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -448,6 +508,12 @@ public class DBUtils {
 
     }
 
+
+    /**
+     * Get options based on the question
+     * @param question the question
+     * @return an ArrayList<String> contains all options
+     */
     public static ArrayList<String> getChoicesInfo (String question){
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
