@@ -27,10 +27,11 @@ declaration: >-
 # (or remove it altogether if you haven't used any external assets)
 
 
+
 # sign *your* name and uid here
-name: 
-uid: 
-name:
-uid:
-name:
-uid:
+name: Chen Huang
+uid: u6735118
+name: Zijun Zhang
+uid: u6904534
+name: Mingda Zheng
+uid: u6686733

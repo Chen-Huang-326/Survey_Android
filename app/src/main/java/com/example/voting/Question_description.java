@@ -8,6 +8,15 @@ import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
 
+/**
+ * SURVEY
+ *
+ * This activity aims to generate a description in the survey;
+ * Customers are able to use the function to introduce some information about the survey to the participants.
+ *
+ * @author: Chen Huang
+ * @Uid: u6735118
+ */
 public class Question_description extends AppCompatActivity {
 
     @Override

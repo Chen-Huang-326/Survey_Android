@@ -12,6 +12,12 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
+/**
+ * Adapter for the recyclerview to generate the views in findSurvey and findVote page
+ *
+ * @author: Chen Huang
+ * @Uid: u6735118
+ */
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
     private ArrayList<String[]> mData;

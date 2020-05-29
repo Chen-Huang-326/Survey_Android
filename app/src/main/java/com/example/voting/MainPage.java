@@ -18,7 +18,14 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 
-
+/**
+ * MAIN NAVIGATION PAGE WITH THREE FRAGMENT
+ *
+ * This activity aims to generate 3 fragments: find, create and account
+ *
+ * @author: Chen Huang
+ * @Uid: u6735118
+ */
 public class MainPage extends AppCompatActivity {
 
     @Override

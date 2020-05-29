@@ -14,6 +14,15 @@ import com.example.voting.ui.home.HomeFragment;
 
 import java.util.ArrayList;
 
+
+/**
+ * VOTE
+ *
+ * This activity aims to create page to visualize the available votes for the customers
+ *
+ * @author: Chen Huang
+ * @Uid: u6735118
+ */
 public class FindVote extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -34,6 +43,14 @@ public class FindVote extends AppCompatActivity {
         Intent intent = new Intent(this, MainPage.class);
         startActivity(intent);
     }
+
+    /**
+     * Create the adapter to generate the list views in the page
+     * In this page, each view represents a vote including information about vote title and vote due date;
+     *
+     * In addition, create the click function to enter into the pollVote page to participate in a vote;
+     * The intent will transform the id of the vote to the next page, which enables the next activity to find the corresponding contents of a particular vote;
+     */
     private void initData (){
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         my_adapter = new MyAdapter(DBUtils.getTitleDueInfo());
@@ -50,6 +67,9 @@ public class FindVote extends AppCompatActivity {
 
     }
 
+    /**
+     * Visualize the views
+     */
     private void initView (){
         recyclerView = (RecyclerView) findViewById(R.id.RV_vote_table);
         recyclerView.setLayoutManager(layoutManager);

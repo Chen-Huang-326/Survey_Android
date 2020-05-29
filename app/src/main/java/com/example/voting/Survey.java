@@ -24,6 +24,19 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * SURVEY
+ *
+ * The activity will generate the main page to create a survey;
+ * It comprises a title editor, question creator and due date setter;
+ * 1. Click the title editor to modify the content of the survey title;
+ * 2. Click the "+" on top-right to open a menu consisting of "description", "multiple question" and "text",
+ * customers are able to choose one to create the survey question they preferred;
+ * 3. Click "SUBMIT" on top-right to submit the survey and set the due date;
+ *
+ * @author: Chen Huang
+ * @Uid: u6735118
+ */
 public class Survey extends AppCompatActivity {
 
     private ArrayList<TextView> description_list = new ArrayList<>(); // Storing description view
@@ -51,8 +64,6 @@ public class Survey extends AppCompatActivity {
      * question types include "Multiple choice" "Paragraph" "Text (Open question)"
      * @param v
      */
-
-    //TODO: task 6 - Advanced feature: Survey (TBD)
     public void QuestionOption (View v){
         PopupMenu popupMenu = new PopupMenu(Survey.this, v);
         popupMenu.getMenuInflater().inflate(R.menu.question_type,popupMenu.getMenu());
@@ -80,6 +91,7 @@ public class Survey extends AppCompatActivity {
         });
     }
 
+    // Get the menu from res-layout-menu-question_type
     @Override
     public boolean onCreateOptionsMenu (Menu menu){
         getMenuInflater().inflate(R.menu.question_type, menu);
@@ -105,6 +117,22 @@ public class Survey extends AppCompatActivity {
         startActivityForResult(intent,1);
     }
 
+    /**
+     * Show the edited survey on this page.
+     *
+     * Use different requestCodes to represent the results from title, description, multi-question and open-end question respectively;
+     * 1. title --- requestCode == 1;
+     * 2. description --- requestCode == 2;
+     * 3. multi-question --- requestCode == 3;
+     * 4. text(open-end) --- requestCode == 4;
+     *
+     * In addition, create a "remove" button to corresponding question;
+     * The button is able to delete the question.
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
@@ -257,10 +285,11 @@ public class Survey extends AppCompatActivity {
         }
     }
 
-    //TODO: task 1.2 - Deleting an topic with a set of options
 
     /**
-     * Ues the method to match the view of button click behaviour and execute the behaviour
+     * The method aims to remove the content of a question;
+     * Ues the method to match the view of button-click behaviour and execute the behaviour
+     * to delete the corresponding question (with choices if multi-question).
      * @param v
      */
     public void removeButton (View v){
@@ -294,15 +323,31 @@ public class Survey extends AppCompatActivity {
     }
 
     /**
-     * This method is used for clear all descriptions and questions
+     * This method aims to clear all descriptions and questions on the page
      */
-
     public void EditClear (View v){
         LinearLayout survey_layout = (LinearLayout)findViewById(R.id.survey_view);
 
         survey_layout.removeAllViews();
     }
 
+
+    /**
+     * The method aims to submit the survey to the server;
+     *
+     * 1. Click the submit button on the top-right and evoke a pop window;
+     * 2. The pop window requires the customer to set a deadline of the survey;
+     *
+     * The legal format of date: dd/mm/yyyy
+     * The due time is 00:00:00 dd/mm/yyyy
+     * The deadline setting:
+     * 1. if customer does not type anything, submit will be failed and give a hint:"Haven't set the due date";
+     * 2. if the date is not in a legal format (dd/mm/yyyy), submit will be failed and give a hint:"Date format is illegal";
+     * 3. if the date is before or equal the current date, submit will be failed and give a hint:"Date must be set after today";
+     * 4. if the date is correct, submit success and back to the previous page (survey fragment), in addition, give a hint:"Submit success!";
+     *
+     * @param v
+     */
     public void Submit (View v){
         ConstraintLayout sur_main = (ConstraintLayout)findViewById(R.id.survey_main);
         AlertDialog.Builder sub_builder = new AlertDialog.Builder(this);
@@ -342,7 +387,7 @@ public class Survey extends AppCompatActivity {
                         } else Toast.makeText(Survey.this,"Date must be set after today", Toast.LENGTH_SHORT).show();
                     }
                     if (!dateFormatValid) {
-                        Toast.makeText(Survey.this, "Date is illegal", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Survey.this, "Date format is illegal", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -414,8 +459,10 @@ public class Survey extends AppCompatActivity {
     }
 
     /**
-     * Combine the information: user name, survey title, due date, question, question type, choice number and selected limitation into one list;
-     * @return
+     * Prepare the survey basic information to be transferred to the server;
+     * Combine the information into a list:
+     * user name, survey title, due date, question, question type, choice number and selected limitation;
+     * @return an ArrayList
      */
     public ArrayList<String[]> createInfo (){
         ArrayList<String[]> surveys = new ArrayList<>();
@@ -432,7 +479,6 @@ public class Survey extends AppCompatActivity {
             survey[6] = list[3];
             surveys.add(survey);
         }
-
 
         return surveys;
     }

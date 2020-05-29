@@ -17,6 +17,18 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+/**
+ * SURVEY
+ *
+ * This activity aims to generate a multiple question in the survey;
+ * 1. Customers are able to use the function to generate a multiple question with several choices;
+ * 2. Customers can create choices as many as they preferred;
+ * 3. Customers can merely generate choices with fixed answers, no random choices (i.e. other______);
+ * 4. Customers can set the maximum number of selection.
+ *
+ * @author: Chen Huang
+ * @Uid: u6735118
+ */
 
 public class Question_multiple extends AppCompatActivity {
     private int index = 0;
@@ -41,10 +53,9 @@ public class Question_multiple extends AppCompatActivity {
 
 
 
-    //TODO: task 1.1 - Adding an topic with a set of options
-
     /**
-     * Actively create EditViews when click the button "ADD"
+     * Actively create EditViews when click the button "ADD";
+     * The EditViews represent the choices.
      * @param v
      */
 
@@ -62,6 +73,10 @@ public class Question_multiple extends AppCompatActivity {
         choice_layout.addView(choice,p);
     }
 
+    /**
+     * This button can remove the last choices from the page
+     * @param v
+     */
     public void MulRemove (View v){
         LinearLayout choice_layout = (LinearLayout)findViewById(R.id.choice_view);
         if (!editTexts.isEmpty()) {
@@ -74,10 +89,18 @@ public class Question_multiple extends AppCompatActivity {
         }
     }
 
+    /**
+     * Back to Survey create page
+     * @param v
+     */
     public void MulBack (View v){
         finish();
     }
 
+    /**
+     * Submit the question and transfer the information about question and choices to the survey create page
+     * @param v
+     */
     public void MulSubmit (View v) {
         EditText selected_limitation = (EditText) findViewById(R.id.limited_num);
         int limited = Integer.parseInt(selected_limitation.getText().toString());

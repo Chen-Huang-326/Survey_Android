@@ -17,6 +17,16 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/**
+ * PARTICIPATE IN A SURVEY
+ *
+ * This activity aims to generate the questions for the participants to poll;
+ * The questions come from the server with particular survey title;
+ * And the result will be uploaded onto the server.
+ *
+ * @author: Chen Huang
+ * @Uid: u6735118
+ */
 public class PollSurvey extends AppCompatActivity {
     TextView surTitle;
     TextView surDueDate;
@@ -81,6 +91,9 @@ public class PollSurvey extends AppCompatActivity {
         surveyConstructor();
     }
 
+    /**
+     * It aims to visualize the survey questions in this page
+     */
     public void surveyConstructor (){
         TempTest();
 
@@ -149,6 +162,10 @@ public class PollSurvey extends AppCompatActivity {
 
     public void BackToFindSurvey (View v){ finish();}
 
+    /**
+     * Submit the result
+     * @param v
+     */
     public void SurveySubmitForResult (View v){
         ArrayList<Integer[]> clickedInfo = new ArrayList<>();
         for (int i = 0; i < lim_num.size(); i++){
@@ -197,6 +214,11 @@ public class PollSurvey extends AppCompatActivity {
         }
     }
 
+    /**
+     * Check whether the customers click too many options which have exceeded the limitation in the multiple questions.
+     * @param clickedInfo
+     * @return
+     */
     public boolean Overflowed (ArrayList<Integer[]> clickedInfo){
         boolean flag = true;
         for (Integer [] info : clickedInfo){
@@ -210,6 +232,12 @@ public class PollSurvey extends AppCompatActivity {
         return flag;
     }
 
+    /**
+     * Check the question number of the invalid answer;
+     * It aims to provide the information about question number to the submission task to hint the customers where is the incorrect place.
+     * @param clickedInfo
+     * @return
+     */
     public ArrayList<Integer> findIncorrectNum(ArrayList<Integer[]> clickedInfo){
         ArrayList<Integer> findNum = new ArrayList<>();
         for (Integer [] info : clickedInfo) {

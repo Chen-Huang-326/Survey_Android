@@ -8,6 +8,15 @@ import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
 
+
+/**
+ * SURVEY
+ *
+ * This activity aims to create a title for a survey
+ *
+ * @author: Chen Huang
+ * @Uid: u6735118
+ */
 public class CreateTitle extends AppCompatActivity {
 
     @Override

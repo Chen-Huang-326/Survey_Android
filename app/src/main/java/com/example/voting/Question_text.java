@@ -8,6 +8,15 @@ import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
 
+/**
+ * SURVEY
+ *
+ * This activity aims to generate an open-end question in the survey;
+ * Customers are able to use the function to generate an open-end question which enables participants to give a random answer;
+ *
+ * @author: Chen Huang
+ * @Uid: u6735118
+ */
 public class Question_text extends AppCompatActivity {
 
     @Override
