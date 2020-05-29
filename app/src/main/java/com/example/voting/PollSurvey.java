@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -18,7 +19,7 @@ public class PollSurvey extends AppCompatActivity {
     TextView surDueDate;
 
     private ArrayList<String[]> queries;
-    //private ArrayList<String> questions;
+    // private ArrayList<String> questions;
     private ArrayList<String[]> basic_info = new ArrayList<>();
     private LinearLayout layout;
 
@@ -73,7 +74,6 @@ public class PollSurvey extends AppCompatActivity {
                 description.setText(question);
                 description.setId(i);
                 description.setTextSize(16);
-
                 layout.addView(description);
             } if (type.equals("text")) {
                 TextView openEnd = new TextView(this);

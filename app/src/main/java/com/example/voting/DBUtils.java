@@ -394,8 +394,8 @@ public class DBUtils {
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            String[] info = new String[3];
             while(rs.next()){
+                String[] info = new String[3];
                 info[0] = rs.getString(1);
                 info[1] = rs.getString(2);
                 info[2] = rs.getString(3);
@@ -403,7 +403,9 @@ public class DBUtils {
                 info[4] = rs.getString(5);
                 info[5] = rs.getString(6);
                 info[6] = rs.getString(7);*/
-                if (DateValid(info[2])) basic_info.add(info); //if the due date is not expired, add it
+                if (DateValid(info[2])) {
+                    basic_info.add(info); //if the due date is not expired, add it
+                }
             }
 
         } catch (SQLException e) {
@@ -422,19 +424,19 @@ public class DBUtils {
         try {
             conn = DBUtils.getConn();
 
-            String sql = "select question,question_type, choice_num, limited_num from survey where survey_title = ?";
+            String sql = "select question,question_type, choice_num, limited_num from survey where survey_title = ? and username=?";
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement(sql);
             //ps.setString(1,username);
             ps.setString(1,title);
+            ps.setString(2,username);
             ResultSet rs = ps.executeQuery();
-            String info [] = new String[4];
             while(rs.next()){
+                String[] info = new String[4];
                 info[0] = rs.getString(1);
                 info[1] = rs.getString(2);
                 info[2] = rs.getString(3);
                 info[3] = rs.getString(4);
-                System.out.println(info[0]);
                 query.add(info);
             }
 

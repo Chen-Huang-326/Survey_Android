@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 
@@ -53,13 +54,12 @@ public class FindSurvey extends AppCompatActivity {
     private ArrayList<String[]> getData(){
         ArrayList<String[]> survey = DBUtils.getSurveyInfo();
         ArrayList<String[]> surveys = new ArrayList<>();
-
         for (String[] s: survey){
             String [] tmp = new String[2];
             tmp[0] = s[1];
             tmp[1] = s[2];
+            surveys.add(tmp);
         }
-
         return surveys;
     }
 }

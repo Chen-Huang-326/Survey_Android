@@ -52,4 +52,10 @@ public class DBUtilsTest {
         result = getInfo.equals(information);
         assertTrue("pass",result);
     }
+
+    @Test
+    public void DateValid(){
+        boolean b = DBUtils.DateValid("07/09/2020");
+        assertEquals(submitFlag,b);
+    }
 }
