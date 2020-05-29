@@ -114,12 +114,17 @@ public class PollVote extends AppCompatActivity {
         }
     }
 
-
+    /**
+     *  Users can only vote one option at a time;
+     *  @param v
+     */
     boolean flag1;
     boolean flag2;
     boolean flag3;
     boolean flag4;
     boolean flag5;
+    //For database: use flag to record users' vote result
+    //For users: use color change after clicking and toast message to show the user what they've selected
     public void clickOption1(View v){
         flag1=true;
         flag2=false;
@@ -215,6 +220,8 @@ public class PollVote extends AppCompatActivity {
         Intent intent = new Intent(this, FindVote.class);
         startActivity(intent);
     }
+
+    // To show the current vote results of all users after voting
     public void showResult(){
         TextView questionTitle = findViewById(R.id.voting_title_in_find);
         String title = questionTitle.getText().toString();
@@ -327,6 +334,7 @@ public class PollVote extends AppCompatActivity {
             default:
                 break;
         }
+        // if have voted, cannot vote again and directly show the vote results
         choice1.setClickable(false);
         choice2.setClickable(false);
         choice3.setClickable(false);

@@ -47,7 +47,7 @@ public class FindSurvey extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.RV_sur_table);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(my_adapter);
-        recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+        //recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
     }
 
 

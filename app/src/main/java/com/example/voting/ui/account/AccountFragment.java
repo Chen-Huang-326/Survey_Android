@@ -42,6 +42,10 @@ public class AccountFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         final TextView show_username = getActivity().findViewById(R.id.show_username);
         final EditText show_email = getActivity().findViewById(R.id.input_email);
+
+        /**
+         *  Show users' username and email & ONLY registered users can show them
+         */
         btnShowUsername = getActivity().findViewById(R.id.show_username_button);
         btnShowUsername.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +60,9 @@ public class AccountFragment extends Fragment {
         });
 
 
-
+        /**
+         *  Set users can only choose one gender & ONLY registered users can set
+         */
         CheckBox female = getActivity().findViewById(R.id.female_checkBox);
         CheckBox male = getActivity().findViewById(R.id.male_checkBox);
         CheckBox transgender = getActivity().findViewById(R.id.transgender_checkBox);
@@ -133,6 +139,9 @@ public class AccountFragment extends Fragment {
 
             }
         });
+        /**
+         *  Settings allow users can change their own photo by shooting from local camera or import from local album
+         */
         
         ImageButton change_photo = getActivity().findViewById(R.id.changePhoto);
 
@@ -140,6 +149,7 @@ public class AccountFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (!MainActivity.myUsername.equals("")){
+                    // This work is not completed yet.
                     Toast.makeText(getActivity(),"Coming soon :)", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getActivity(),"Please register first!", Toast.LENGTH_SHORT).show();

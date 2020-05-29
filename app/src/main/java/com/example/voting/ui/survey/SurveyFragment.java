@@ -43,7 +43,13 @@ public class SurveyFragment extends Fragment {
         });
         return root;
     }
-
+    /**
+     *  Notice, ONLY registered user can create voting or survey, Visitor have NO ACCESS to them.
+     *
+     *  In "Create" interface,
+     *  Set voting button and survey button separately,
+     *  so that users can enter different pages according to different requirements.
+     */
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         btnSurvey = getActivity().findViewById(R.id.survey);

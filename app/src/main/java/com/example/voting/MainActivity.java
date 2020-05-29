@@ -14,6 +14,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    /**
+     *  Use global variables to realize the reuse of user data in other classes
+     */
     public static String myUsername;
     public static String myAge;
     public static String myEmail;
@@ -59,6 +62,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     *  Visitors can access the main page to vote or fill out survey
+     *  BUT have NO ACCESS to create or show personal information
+     *  which have been set inside of "Create" fragment and "Account" fragment
+     */
     public void visitorActivityButton(View view){
         Intent intent = new Intent(this, MainPage.class);
         startActivity(intent);

@@ -20,6 +20,7 @@ public class Vote extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // hide window title
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
 
         setContentView(R.layout.activity_vote);
@@ -27,7 +28,7 @@ public class Vote extends AppCompatActivity {
 
 
     /**
-     *  Set the function of "back" button;
+     *  Set function buttons;
      *  @param v
      */
     public void clickVoteBack (View v){
@@ -39,6 +40,10 @@ public class Vote extends AppCompatActivity {
         EditText edit_title = findViewById(R.id.vote_title_edit);
         edit_title.setText("");
     }
+    /**
+     *  use Visibility to realize controls changes before and after clicking buttons
+     *  @param v
+     */
     public void clickAddOption3(View v){
         final EditText optionThree = findViewById(R.id.option_three);
         Button addOption3 = findViewById(R.id.add_option3);
@@ -62,6 +67,7 @@ public class Vote extends AppCompatActivity {
         Button addOption5 = findViewById(R.id.add_option5);
         ImageButton removeOption5 = findViewById(R.id.remove_option5);
 
+        //directly remove
         if (optionFour.getVisibility()==View.INVISIBLE && optionFive.getVisibility()==View.INVISIBLE) {
             addOption3.setVisibility(View.VISIBLE);
             addOption4.setVisibility(View.INVISIBLE);
@@ -69,6 +75,8 @@ public class Vote extends AppCompatActivity {
             optionThree.setVisibility(View.INVISIBLE);
             removeOption3.setVisibility(View.INVISIBLE);
         }
+        // If you delete option three while option four is present,
+        // change option four to new option three and remove option four
         else if (optionFour.getVisibility()==View.VISIBLE && optionFive.getVisibility()==View.INVISIBLE){
             optionFour.setVisibility(View.INVISIBLE);
             removeOption4.setVisibility(View.INVISIBLE);
@@ -77,6 +85,8 @@ public class Vote extends AppCompatActivity {
             addOption4.setVisibility(View.VISIBLE);
             addOption5.setVisibility(View.INVISIBLE);
         }
+        // If you delete option three while option four and option five is present,
+        // change option four to new option three , change option five to new option four and remove option five
         else if (optionFour.getVisibility()==View.VISIBLE && optionFive.getVisibility()==View.VISIBLE){
             optionFive.setVisibility(View.INVISIBLE);
             removeOption5.setVisibility(View.INVISIBLE);
@@ -105,6 +115,8 @@ public class Vote extends AppCompatActivity {
         ImageButton removeOption5 = findViewById(R.id.remove_option5);
         Button addOption4 = findViewById(R.id.add_option4);
         Button addOption5 = findViewById(R.id.add_option5);
+
+        //directly remove
         if (optionFive.getVisibility()==View.INVISIBLE){
             addOption4.setVisibility(View.VISIBLE);
             addOption5.setVisibility(View.INVISIBLE);
@@ -112,6 +124,8 @@ public class Vote extends AppCompatActivity {
             optionFour.setVisibility(View.INVISIBLE);
             removeOption4.setVisibility(View.INVISIBLE);
         }
+        // If you delete option three while option five is present,
+        // change option five to new option four and remove option five
         else {
             optionFour.setText(optionFive.getText());
             optionFive.setText("");
@@ -131,6 +145,7 @@ public class Vote extends AppCompatActivity {
 
     }
     public void clickRemoveOption5(View v){
+        //directly remove
         final EditText optionFive = findViewById(R.id.option_five);
         ImageButton removeOption5 = findViewById(R.id.remove_option5);
         Button addOption5 = findViewById(R.id.add_option5);
@@ -142,7 +157,7 @@ public class Vote extends AppCompatActivity {
 
 
     /**
-     * Set the function to edit the survey topic title;
+     * Set save button, re-edit button and submit button & use Visibility to realize controls changes before and after saving
      * @param v
      */
     public void showSavedVoting (View v){
@@ -177,6 +192,9 @@ public class Vote extends AppCompatActivity {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String current_date = formatter.format(calendar.getTime()).substring(0,10);
 
+
+        // Time logic judgment of Deadline set
+        // dateValid means time is formatted correctly and time is future time
         boolean dateValid = false;
         if (due_date.length() == 10 && due_date.charAt(2) == '/' && due_date.charAt(5) == '/') {
             int day = Integer.parseInt(due_date.substring(0, 2));
@@ -185,6 +203,7 @@ public class Vote extends AppCompatActivity {
             int current_day = Integer.parseInt(current_date.substring(0, 2));
             int current_month = Integer.parseInt(current_date.substring(3, 5));
             int current_year = Integer.parseInt(current_date.substring(6));
+            //To guarantee time is formatted correctly
             if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
                 if (day > 0 && day <= 31) {
                     dateValid = true;
@@ -207,6 +226,7 @@ public class Vote extends AppCompatActivity {
                     }
                 }
             }
+            // To guarantee deadline is future time
             if (year < current_year){
                 dateValid = false;
             }
@@ -219,6 +239,7 @@ public class Vote extends AppCompatActivity {
 
         } else {dateValid = false;}
 
+        //users must set the deadline correctly before saving
         if (dateValid) {
             edit_due_date.setVisibility(View.INVISIBLE);
             saved_due_date.setVisibility(View.VISIBLE);
@@ -266,6 +287,7 @@ public class Vote extends AppCompatActivity {
         }
     }
 
+    //To guarantee the original content is still there when users edit them again
     public void re_editVoting(View v){
         final EditText edit_title = findViewById(R.id.vote_title_edit);
         TextView saved_title = findViewById(R.id.saved_title);
@@ -344,7 +366,7 @@ public class Vote extends AppCompatActivity {
         submit_button.setVisibility(View.INVISIBLE);
 
     }
-
+    // Upload to database when submit
     public void create_vote_submit(View view){
         ArrayList<String> info = new ArrayList<>();
         TextView savedTitle = findViewById(R.id.saved_title);

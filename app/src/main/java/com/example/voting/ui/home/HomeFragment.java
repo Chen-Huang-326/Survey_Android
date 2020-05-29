@@ -53,7 +53,11 @@ public class HomeFragment extends Fragment {
         return root;
 
     }
-
+    /**
+     *  In "Find" interface,
+     *  Set voting button and survey button separately,
+     *  so that users can enter different pages according to different requirements.
+     */
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
