@@ -50,17 +50,25 @@ public class FindSurvey extends AppCompatActivity {
         //recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
     }
 
-    public void clickFindSurveyBack(View v){
-        Intent intent = new Intent(this, MainPage.class);
-        startActivity(intent);
-    }
     private ArrayList<String[]> getData(){
+        /*
         ArrayList<String[]> survey = DBUtils.getSurveyInfo();
         ArrayList<String[]> surveys = new ArrayList<>();
         for (String[] s: survey){
             String [] tmp = new String[2];
             tmp[0] = s[1];
             tmp[1] = s[2];
+            surveys.add(tmp);
+            System.out.println(s[1]);
+        }
+        return surveys;
+         */
+
+        ArrayList<String[]> surveys = new ArrayList<>();
+        for (int i= 10; i <20; i++ ){
+            String [] tmp = new String[2];
+            tmp[0] = "test" + i;
+            tmp[1] = i+ "/07/2020";
             surveys.add(tmp);
         }
         return surveys;
