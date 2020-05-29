@@ -50,7 +50,10 @@ public class FindSurvey extends AppCompatActivity {
         //recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
     }
 
-
+    public void clickFindSurveyBack(View v){
+        Intent intent = new Intent(this, MainPage.class);
+        startActivity(intent);
+    }
     private ArrayList<String[]> getData(){
         ArrayList<String[]> survey = DBUtils.getSurveyInfo();
         ArrayList<String[]> surveys = new ArrayList<>();
