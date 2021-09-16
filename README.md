@@ -1,1 +1,1 @@
-Sample project repo for COMP2100/6442
+A survey application on Android platform
